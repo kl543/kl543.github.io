@@ -5,24 +5,33 @@
   <title>Kaiming Liu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: system-ui, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
-    header { background: #111; color: #fff; padding: 40px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2em; }
-    nav { margin-top: 15px; }
-    nav a { color: #fff; text-decoration: none; margin: 0 10px; }
-    main { max-width: 900px; margin: 20px auto; padding: 0 16px; }
-    section { margin: 40px 0; }
-    h2 { border-bottom: 2px solid #eee; padding-bottom: 6px; }
-    footer { text-align: center; color: #666; padding: 20px; border-top: 1px solid #eee; }
+    :root{--ink:#111;--muted:#666;--line:#eee;}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;line-height:1.6;color:var(--ink)}
+    header{background:#111;color:#fff;padding:44px 20px;text-align:center}
+    header h1{margin:0 0 6px}
+    header p{margin:0;opacity:.9}
+    nav{margin-top:14px}
+    nav a{color:#fff;text-decoration:none;margin:0 10px}
+    main{max-width:900px;margin:28px auto;padding:0 16px}
+    h2{margin:28px 0 10px;border-bottom:2px solid var(--line);padding-bottom:6px}
+    section{margin:28px 0}
+    ul{padding-left:18px;margin:10px 0}
+    code,.tag{font-family:ui-monospace,Menlo,Consolas,monospace}
+    .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;margin:4px 6px 0 0;font-size:12px;color:var(--muted)}
+    .card{border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:12px 0}
+    .muted{color:var(--muted)}
+    footer{text-align:center;color:var(--muted);padding:20px;border-top:1px solid var(--line)}
   </style>
 </head>
 <body>
   <header>
     <h1>Kaiming Liu</h1>
-    <p>Physics @ UIUC → Quant / AI / ML</p>
+    <p>Physics PhD Student @ UIUC — Computational methods, automation, and data-driven analysis</p>
     <nav>
       <a href="#about">About</a>
+      <a href="#interests">Interests</a>
       <a href="#projects">Projects</a>
+      <a href="#coursework">Coursework</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -30,16 +39,69 @@
   <main>
     <section id="about">
       <h2>About</h2>
-      <p>I am a Physics PhD student at UIUC focusing on MBE/STM experiments, automation, and data analysis. 
-         My long-term goal is to transition into quantitative finance and machine learning.</p>
+      <p>
+        I am a Physics PhD student at UIUC. My recent work focuses on building
+        <b>automation</b> for laboratory systems and developing <b>numerical/ML-assisted</b>
+        pipelines for spectroscopy and imaging data. I like problems that combine
+        algorithms, clean software, and careful validation on real measurements.
+      </p>
+      <div>
+        <span class="tag">Python</span>
+        <span class="tag">NumPy / SciPy</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">rhkpy</span>
+        <span class="tag">Optimization</span>
+        <span class="tag">Control</span>
+      </div>
+    </section>
+
+    <section id="interests">
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Numerical methods for data analysis and model fitting in condensed matter systems</li>
+        <li>Experimental automation: feedback control, device interfacing, and robust pipelines</li>
+        <li>Interpretable ML as a tool for denoising, feature extraction, and anomaly detection</li>
+      </ul>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
+      <h2>Selected Projects</h2>
+
+      <div class="card">
+        <b>Feedback Temperature Controller for MBE Power Supply</b>
+        <div class="muted">Python · SCPI · PID/PI tuning · Logging</div>
+        <p>
+          Implemented computer control of a high-temperature source with adjustable ramp/hold profiles and safety interlocks.
+          Added data logging and simple system ID to tune gains from step responses; reduced manual operation time during growth.
+        </p>
+      </div>
+
+      <div class="card">
+        <b>Spectroscopy Processing & Peak-Tracking</b>
+        <div class="muted">Python · <code>rhkpy</code> · signal processing</div>
+        <p>
+          Built a batch pipeline for dI/dV maps: background removal, alignment, local averaging, peak detection, and exportable figures.
+          Emphasis on reproducibility (config files) and unit-tested utilities.
+        </p>
+      </div>
+
+      <div class="card">
+        <b>Computational Mini-Projects</b>
+        <div class="muted">Numerics · Simple models</div>
+        <ul>
+          <li>Predator–prey cellular automaton: stability regimes and parameter sweeps.</li>
+          <li>Toy band-structure/QPI utilities: grid sampling, FFT-based filtering, and visualization.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="coursework">
+      <h2>Relevant Coursework</h2>
       <ul>
-        <li>MBE auto temperature control system (Python + SCPI)</li>
-        <li>STM spectroscopy pipeline for dI/dV analysis</li>
-        <li>Quant prep: LeetCode + ML for finance data</li>
+        <li>Computational Physics (Python-based projects)</li>
+        <li>Mathematical Methods in Physics</li>
+        <li>Probability & Basic Statistics (self-study refresh)</li>
       </ul>
     </section>
 
@@ -47,18 +109,14 @@
       <h2>Contact</h2>
       <ul>
         <li>Email: kl54@illinois.edu</li>
-        <li>GitHub: <a href="https://github.com/kl543" target="_blank">github.com/kl543</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/kaiming-l-9a166526a/" target="_blank">LinkedIn</a></li>
+        <li>GitHub: <a href="https://github.com/kl543" target="_blank" rel="noreferrer">github.com/kl543</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/kaiming-l-9a166526a/" target="_blank" rel="noreferrer">LinkedIn</a></li>
       </ul>
+      <p class="muted">PDF CV available on request.</p>
     </section>
   </main>
 
-  <footer>
-    © <span id="year"></span> Kaiming Liu
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <footer>© <span id="y"></span> Kaiming Liu</footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
