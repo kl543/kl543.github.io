@@ -5,30 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Selected Projects — Kaiming Liu</title>
 
-  <!-- Your site stylesheet -->
+  <!-- Your site stylesheet (可选) -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Tiny fallback styles in case style.css isn't loaded -->
+  <!-- Tiny fallback styles (以防 style.css 路径错误) -->
   <style>
     :root{--line:#e9e9e9;--muted:#666;--ink:#111}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
     header{background:#111;color:#fff;padding:28px 16px;text-align:center}
+    header h1{margin:0 0 6px 0;font-size:40px;letter-spacing:.5px}
+    .subtitle{color:#cfcfcf;margin-top:4px}
     nav{display:flex;gap:14px;justify-content:center;margin:10px 0 0}
-    nav a{color:#fff;text-decoration:none;opacity:.9} nav a:hover{opacity:1}
+    nav a{color:#fff;text-decoration:none;opacity:.9}
+    nav a:hover{opacity:1;text-decoration:underline}
     main{max-width:1040px;margin:24px auto;padding:0 16px}
     .muted{color:var(--muted)}
-    .card{border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:16px 0;background:#fff}
-    h3{margin:.2rem 0 .4rem;font-weight:700}
-    .card h3 a{color:inherit;text-decoration:none}
+    .card{border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin:16px 0;background:#fff}
+    .card h3{margin:.2rem 0 .5rem}
+    .card h3 a{color:var(--ink);text-decoration:none}
     .card h3 a:hover{text-decoration:underline}
-    .btn{display:inline-block;border:1px solid var(--line);padding:8px 12px;border-radius:10px;text-decoration:none;margin-right:8px}
-    .btn:hover{background:#f6f6f6}
+    .btn{display:inline-block;border:1px solid var(--line);padding:8px 12px;border-radius:10px;text-decoration:none;margin-right:8px;color:var(--ink);background:#fafafa}
+    .btn:hover{background:#f3f3f3}
+    .pill{display:inline-block;background:#f6f6f6;border:1px solid var(--line);border-radius:999px;padding:4px 10px;margin-right:6px;font-size:12px;color:#333}
   </style>
 </head>
 <body>
   <header>
     <h1>Selected Projects</h1>
-    <div class="muted">Automation • Data processing • Reproducible pipelines</div>
+    <div class="subtitle">Automation • Data processing • Reproducible pipelines</div>
     <nav>
       <a href="index.html">About</a>
       <a href="interests.html">Interests</a>
@@ -41,90 +45,107 @@
   <main>
     <!-- 1) MBE Feedback Controller -->
     <section class="card">
-      <h3>
-        <a href="https://kl543.github.io/mbe3-controller/" target="_blank" rel="noreferrer">
-          MBE Heating Stage Feedback Controller
-        </a>
-      </h3>
-      <div class="muted">Python · SCPI · PI/PID · Logging · Safety interlocks</div>
+      <h3><a href="https://kl543.github.io/mbe3-controller/">
+        MBE Heating Stage Feedback Controller
+      </a></h3>
+      <p>
+        <span class="pill">Python</span>
+        <span class="pill">SCPI</span>
+        <span class="pill">PI/PID</span>
+        <span class="pill">Logging</span>
+        <span class="pill">Safety interlocks</span>
+      </p>
       <p>
         Automated temperature control for a high-temperature source with adjustable ramp/hold profiles and safety cutoffs.
         Includes logging, system identification for tuning, and replay capability to reduce manual operation during MBE growth.
       </p>
       <p>
-        <a class="btn" href="https://kl543.github.io/mbe3-controller/" target="_blank" rel="noreferrer">Live Docs</a>
-        <a class="btn" href="https://github.com/kl543/mbe3-controller" target="_blank" rel="noreferrer">Code</a>
+        <a class="btn" href="https://kl543.github.io/mbe3-controller/">Live Docs</a>
+        <a class="btn" href="https://github.com/kl543/mbe3-controller">Code</a>
       </p>
     </section>
 
     <!-- 2) STM Data Toolkit -->
     <section class="card">
-      <h3>
-        <a href="https://kl543.github.io/stm-toolkit/" target="_blank" rel="noreferrer">
-          STM Data Toolkit (Topography & dI/dV linecuts)
-        </a>
-      </h3>
-      <div class="muted">Python · numpy/pandas · matplotlib · rhkpy</div>
+      <h3><a href="https://kl543.github.io/stm-toolkit/">
+        STM Data Toolkit (Topography & dI/dV linecuts)
+      </a></h3>
+      <p>
+        <span class="pill">Python</span>
+        <span class="pill">numpy/pandas</span>
+        <span class="pill">matplotlib</span>
+        <span class="pill">rhkpy</span>
+      </p>
       <p>
         Processing utilities for STM experiments: plane/background removal, drift correction, spectroscopy map alignment,
         dI/dV linecut extraction, and batch figure export. Config-driven for reproducibility.
       </p>
       <p>
-        <a class="btn" href="https://kl543.github.io/stm-toolkit/" target="_blank" rel="noreferrer">Details</a>
-        <a class="btn" href="https://github.com/kl543/stm-toolkit" target="_blank" rel="noreferrer">Repository</a>
+        <a class="btn" href="https://kl543.github.io/stm-toolkit/">Live Page</a>
+        <a class="btn" href="https://github.com/kl543/stm-toolkit">Repository</a>
+        <!-- 如果你有单独写的站内详情页，可以把下面的链接改为 stm-toolkit.html -->
+        <!-- <a class="btn" href="stm-toolkit.html">Details</a> -->
       </p>
     </section>
 
     <!-- 3) QPI in Altermagnets -->
     <section class="card">
-      <h3>
-        <a href="https://github.com/kl543/qpi-isoenergy-chiral-magnet" target="_blank" rel="noreferrer">
-          QPI from Iso-energy Contours in Altermagnets
-        </a>
-      </h3>
-      <div class="muted">Python · FFT · Joint DOS · scattering vectors</div>
+      <h3><a href="qpi-altermagnet.html">
+        QPI from Iso-energy Contours in Altermagnets
+      </a></h3>
+      <p>
+        <span class="pill">Python</span>
+        <span class="pill">FFT</span>
+        <span class="pill">Joint DOS</span>
+        <span class="pill">Scattering vectors</span>
+      </p>
       <p>
         Simulation of quasiparticle interference (QPI) patterns in altermagnets:
         extract iso-energy contours from model bands, identify scattering vectors, and synthesize QPI maps for STM comparison.
       </p>
       <p>
-        <a class="btn" href="https://github.com/kl543/qpi-isoenergy-chiral-magnet" target="_blank" rel="noreferrer">Repository</a>
+        <a class="btn" href="https://github.com/kl543/qpi-isoenergy-chiral-magnet">Repository</a>
         <a class="btn" href="qpi-altermagnet.html">Details</a>
       </p>
     </section>
 
     <!-- 4) Rydberg Atoms Simulation -->
     <section class="card">
-      <h3>
-        <a href="https://github.com/kl543/rydberg-dynamics" target="_blank" rel="noreferrer">
-          Rydberg Atoms: Time Evolution & Phase Flips
-        </a>
-      </h3>
-      <div class="muted">Python · Schrödinger dynamics · ODE solvers</div>
+      <h3><a href="rydberg.html">
+        Rydberg Atoms: Time Evolution & Phase Flips
+      </a></h3>
+      <p>
+        <span class="pill">Python</span>
+        <span class="pill">Schrödinger dynamics</span>
+        <span class="pill">ODE solvers</span>
+      </p>
       <p>
         Undergraduate project: numerical simulation of Rydberg-atom wavefunction dynamics,
         focusing on time evolution and phase-flip phenomena. Visualized population and fidelity over time.
       </p>
       <p>
-        <a class="btn" href="https://github.com/kl543/rydberg-dynamics" target="_blank" rel="noreferrer">Repository</a>
+        <a class="btn" href="https://github.com/kl543/rydberg-dynamics">Repository</a>
         <a class="btn" href="rydberg.html">Details</a>
       </p>
     </section>
 
     <!-- 5) Cellular Automata -->
     <section class="card">
-      <h3>
-        <a href="https://github.com/kl543/ca-physics-berkeley" target="_blank" rel="noreferrer">
-          Cellular Automata (Berkeley Computational Physics)
-        </a>
-      </h3>
-      <div class="muted">Python · CA models · parameter sweeps · visualization</div>
+      <h3><a href="ca-berkeley.html">
+        Cellular Automata (Berkeley Computational Physics)
+      </a></h3>
+      <p>
+        <span class="pill">Python</span>
+        <span class="pill">CA models</span>
+        <span class="pill">Parameter sweeps</span>
+        <span class="pill">Visualization</span>
+      </p>
       <p>
         Course project implementing several cellular-automata rules. Explored stability regimes, performed parameter sweeps,
         and visualized emergent behavior with a focus on reproducibility and automation.
       </p>
       <p>
-        <a class="btn" href="https://github.com/kl543/ca-physics-berkeley" target="_blank" rel="noreferrer">Repository</a>
+        <a class="btn" href="https://github.com/kl543/ca-physics-berkeley">Repository</a>
         <a class="btn" href="ca-berkeley.html">Details</a>
       </p>
     </section>
