@@ -8,7 +8,7 @@
   <!-- Your site stylesheet -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Fallback styles (kept tiny) in case style.css is missing or path is wrong -->
+  <!-- Tiny fallback styles in case style.css isn't loaded -->
   <style>
     :root{--line:#e9e9e9;--muted:#666;--ink:#111}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.6}
@@ -18,7 +18,9 @@
     main{max-width:1040px;margin:24px auto;padding:0 16px}
     .muted{color:var(--muted)}
     .card{border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin:16px 0;background:#fff}
-    h3{margin:.2rem 0 0.4rem}
+    h3{margin:.2rem 0 .4rem;font-weight:700}
+    .card h3 a{color:inherit;text-decoration:none}
+    .card h3 a:hover{text-decoration:underline}
     .btn{display:inline-block;border:1px solid var(--line);padding:8px 12px;border-radius:10px;text-decoration:none;margin-right:8px}
     .btn:hover{background:#f6f6f6}
   </style>
@@ -39,9 +41,11 @@
   <main>
     <!-- 1) MBE Feedback Controller -->
     <section class="card">
-      <h3><a href="https://kl543.github.io/mbe3-controller/" target="_blank" rel="noreferrer">
-        MBE Heating Stage Feedback Controller
-      </a></h3>
+      <h3>
+        <a href="https://kl543.github.io/mbe3-controller/" target="_blank" rel="noreferrer">
+          MBE Heating Stage Feedback Controller
+        </a>
+      </h3>
       <div class="muted">Python · SCPI · PI/PID · Logging · Safety interlocks</div>
       <p>
         Automated temperature control for a high-temperature source with adjustable ramp/hold profiles and safety cutoffs.
@@ -55,25 +59,29 @@
 
     <!-- 2) STM Data Toolkit -->
     <section class="card">
-      <h3><a href="https://github.com/kl543/stm-toolkit" target="_blank" rel="noreferrer">
-        STM Data Toolkit (Topography & dI/dV linecuts)
-      </a></h3>
+      <h3>
+        <a href="https://kl543.github.io/stm-toolkit/" target="_blank" rel="noreferrer">
+          STM Data Toolkit (Topography & dI/dV linecuts)
+        </a>
+      </h3>
       <div class="muted">Python · numpy/pandas · matplotlib · rhkpy</div>
       <p>
         Processing utilities for STM experiments: plane/background removal, drift correction, spectroscopy map alignment,
         dI/dV linecut extraction, and batch figure export. Config-driven for reproducibility.
       </p>
       <p>
+        <a class="btn" href="https://kl543.github.io/stm-toolkit/" target="_blank" rel="noreferrer">Details</a>
         <a class="btn" href="https://github.com/kl543/stm-toolkit" target="_blank" rel="noreferrer">Repository</a>
-        <a class="btn" href="stm-toolkit.html">Details</a>
       </p>
     </section>
 
     <!-- 3) QPI in Altermagnets -->
     <section class="card">
-      <h3><a href="https://github.com/kl543/qpi-isoenergy-chiral-magnet" target="_blank" rel="noreferrer">
-        QPI from Iso-energy Contours in Altermagnets
-      </a></h3>
+      <h3>
+        <a href="https://github.com/kl543/qpi-isoenergy-chiral-magnet" target="_blank" rel="noreferrer">
+          QPI from Iso-energy Contours in Altermagnets
+        </a>
+      </h3>
       <div class="muted">Python · FFT · Joint DOS · scattering vectors</div>
       <p>
         Simulation of quasiparticle interference (QPI) patterns in altermagnets:
@@ -87,9 +95,11 @@
 
     <!-- 4) Rydberg Atoms Simulation -->
     <section class="card">
-      <h3><a href="https://github.com/kl543/rydberg-dynamics" target="_blank" rel="noreferrer">
-        Rydberg Atoms: Time Evolution & Phase Flips
-      </a></h3>
+      <h3>
+        <a href="https://github.com/kl543/rydberg-dynamics" target="_blank" rel="noreferrer">
+          Rydberg Atoms: Time Evolution & Phase Flips
+        </a>
+      </h3>
       <div class="muted">Python · Schrödinger dynamics · ODE solvers</div>
       <p>
         Undergraduate project: numerical simulation of Rydberg-atom wavefunction dynamics,
@@ -103,9 +113,11 @@
 
     <!-- 5) Cellular Automata -->
     <section class="card">
-      <h3><a href="https://github.com/kl543/ca-physics-berkeley" target="_blank" rel="noreferrer">
-        Cellular Automata (Berkeley Computational Physics)
-      </a></h3>
+      <h3>
+        <a href="https://github.com/kl543/ca-physics-berkeley" target="_blank" rel="noreferrer">
+          Cellular Automata (Berkeley Computational Physics)
+        </a>
+      </h3>
       <div class="muted">Python · CA models · parameter sweeps · visualization</div>
       <p>
         Course project implementing several cellular-automata rules. Explored stability regimes, performed parameter sweeps,
