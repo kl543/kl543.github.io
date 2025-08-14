@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kaiming Liu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+    header { background: #111; color: #fff; padding: 40px 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 2em; }
+    nav { margin-top: 15px; }
+    nav a { color: #fff; text-decoration: none; margin: 0 10px; }
+    main { max-width: 900px; margin: 20px auto; padding: 0 16px; }
+    section { margin: 40px 0; }
+    h2 { border-bottom: 2px solid #eee; padding-bottom: 6px; }
+    footer { text-align: center; color: #666; padding: 20px; border-top: 1px solid #eee; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kaiming Liu</h1>
+    <p>Physics @ UIUC → Quant / AI / ML</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About</h2>
+      <p>I am a Physics PhD student at UIUC focusing on MBE/STM experiments, automation, and data analysis. 
+         My long-term goal is to transition into quantitative finance and machine learning.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>MBE auto temperature control system (Python + SCPI)</li>
+        <li>STM spectroscopy pipeline for dI/dV analysis</li>
+        <li>Quant prep: LeetCode + ML for finance data</li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li>Email: kl54@illinois.edu</li>
+        <li>GitHub: <a href="https://github.com/kl543" target="_blank">github.com/kl543</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/kaiming-l-9a166526a/" target="_blank">LinkedIn</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Kaiming Liu
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
