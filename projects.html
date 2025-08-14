@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Kaiming Liu — Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Selected Projects</h1>
+    <p>Automation • Signal processing • Reproducible pipelines</p>
+  </header>
+  <nav>
+    <a href="index.html">About</a>
+    <a href="interests.html">Interests</a>
+    <a class="active" href="projects.html">Projects</a>
+    <a href="coursework.html">Coursework</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <main>
+    <section>
+      <div class="card">
+        <b>Feedback Temperature Controller for MBE Power Supply</b>
+        <div class="muted">Python · SCPI · PID/PI tuning · Logging</div>
+        <p>Computer control of a high-temperature source with adjustable ramp/hold profiles and safety interlocks.
+           Added logging and simple system ID to tune gains; reduced manual operation time during growth.</p>
+      </div>
+      <div class="card">
+        <b>Spectroscopy Processing & Peak-Tracking</b>
+        <div class="muted">Python · <code>rhkpy</code> · signal processing</div>
+        <p>Batch pipeline for dI/dV maps: background removal, alignment, local averaging, peak detection, and exportable figures.
+           Emphasis on reproducibility (config files) and tested utilities.</p>
+      </div>
+      <div class="card">
+        <b>Computational Mini-Projects</b>
+        <div class="muted">Numerics · Simple models</div>
+        <ul>
+          <li>Predator–prey cellular automaton: stability regimes and parameter sweeps.</li>
+          <li>Toy band-structure/QPI utilities: grid sampling, FFT-based filtering, visualization.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>© <span id="y"></span> Kaiming Liu</footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
