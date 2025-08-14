@@ -11,6 +11,8 @@
     <h1>Contact</h1>
     <p>Feel free to reach out</p>
   </header>
+
+  <!-- 顶部导航（保持与你其他页面一致） -->
   <nav>
     <a href="index.html">About</a>
     <a href="interests.html">Interests</a>
@@ -18,18 +20,27 @@
     <a href="coursework.html">Coursework</a>
     <a class="active" href="contact.html">Contact</a>
   </nav>
+
   <main>
     <section>
       <h2>Get in touch</h2>
       <ul>
         <li>Email: kl54@illinois.edu</li>
-        <li>GitHub: <a href="https://github.com/kl543" target="_blank" rel="noreferrer">github.com/kl543</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/kaiming-l-9a166526a/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+        <li>GitHub: <a href="https://github.com/kl543" rel="noreferrer">github.com/kl543</a></li>
+        <li>LinkedIn: <a href="https://www.linkedin.com/in/kaiming-l-9a166526a/" rel="noreferrer">LinkedIn</a></li>
       </ul>
-      <p class="muted">PDF CV available on request.</p>
+
+      <!-- 这里把原来的 gray 文本换成本地 PDF 的下载按钮 -->
+      <p>
+        <a class="btn" href="assets/cv/Kaiming_Liu_CV.pdf">Download CV (PDF)</a>
+      </p>
+      <!-- 如果你想让它在新标签打开，就在上面的 <a> 加上 target="_blank" rel="noopener" -->
     </section>
   </main>
+
   <footer>© <span id="y"></span> Kaiming Liu</footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
