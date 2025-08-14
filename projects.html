@@ -1,48 +1,86 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Kaiming Liu — Projects</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Selected Projects</h1>
-    <p>Automation • Signal processing • Reproducible pipelines</p>
-  </header>
-  <nav>
-    <a href="index.html">About</a>
-    <a href="interests.html">Interests</a>
-    <a class="active" href="projects.html">Projects</a>
-    <a href="coursework.html">Coursework</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <main>
-    <section>
-      <div class="card">
-        <b>Feedback Temperature Controller for MBE Power Supply</b>
-        <div class="muted">Python · SCPI · PID/PI tuning · Logging</div>
-        <p>Computer control of a high-temperature source with adjustable ramp/hold profiles and safety interlocks.
-           Added logging and simple system ID to tune gains; reduced manual operation time during growth.</p>
-      </div>
-      <div class="card">
-        <b>Spectroscopy Processing & Peak-Tracking</b>
-        <div class="muted">Python · <code>rhkpy</code> · signal processing</div>
-        <p>Batch pipeline for dI/dV maps: background removal, alignment, local averaging, peak detection, and exportable figures.
-           Emphasis on reproducibility (config files) and tested utilities.</p>
-      </div>
-      <div class="card">
-        <b>Computational Mini-Projects</b>
-        <div class="muted">Numerics · Simple models</div>
-        <ul>
-          <li>Predator–prey cellular automaton: stability regimes and parameter sweeps.</li>
-          <li>Toy band-structure/QPI utilities: grid sampling, FFT-based filtering, visualization.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-  <footer>© <span id="y"></span> Kaiming Liu</footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-</body>
-</html>
+<main>
+  <!-- 1) MBE Feedback Controller -->
+  <section class="card">
+    <h3><a href="https://kl543.github.io/mbe3-controller/" target="_blank" rel="noreferrer">
+      MBE Heating Stage Feedback Controller
+    </a></h3>
+    <div class="muted">Python · SCPI · PI/PID · Logging · Safety interlocks</div>
+    <p>
+      Automated temperature control for a high-temperature source with adjustable ramp/hold profiles 
+      and safety cutoffs. Includes logging, system identification for tuning, and replay capability 
+      to reduce manual operation during MBE growth.
+    </p>
+    <p>
+      <a class="btn" href="https://kl543.github.io/mbe3-controller/" target="_blank" rel="noreferrer">Live Docs</a>
+      <a class="btn" href="https://github.com/kl543/mbe3-controller" target="_blank" rel="noreferrer">Code</a>
+    </p>
+  </section>
+
+  <!-- 2) STM Data Toolkit -->
+  <section class="card">
+    <h3><a href="https://github.com/kl543/stm-toolkit" target="_blank" rel="noreferrer">
+      STM Data Toolkit (Topography & dI/dV linecuts)
+    </a></h3>
+    <div class="muted">Python · numpy/pandas · matplotlib · rhkpy</div>
+    <p>
+      Processing utilities for STM experiments: plane/background removal, drift correction, 
+      spectroscopy map alignment, dI/dV linecut extraction, and batch figure export. 
+      Config-driven for reproducibility.
+    </p>
+    <p>
+      <a class="btn" href="https://github.com/kl543/stm-toolkit" target="_blank" rel="noreferrer">Repository</a>
+      <a class="btn" href="stm-toolkit.html">Details</a>
+    </p>
+  </section>
+
+  <!-- 3) QPI in Altermagnets -->
+  <section class="card">
+    <h3><a href="https://github.com/kl543/qpi-isoenergy-chiral-magnet" target="_blank" rel="noreferrer">
+      QPI from Iso-energy Contours in Altermagnets
+    </a></h3>
+    <div class="muted">Python · FFT · Joint DOS · scattering vectors</div>
+    <p>
+      Simulation of quasiparticle interference (QPI) patterns in altermagnets. 
+      Extracts iso-energy contours from model bands, identifies scattering vectors, 
+      and builds synthetic QPI maps for comparison with STM.
+    </p>
+    <p>
+      <a class="btn" href="https://github.com/kl543/qpi-isoenergy-chiral-magnet" target="_blank" rel="noreferrer">Repository</a>
+      <a class="btn" href="qpi-altermagnet.html">Details</a>
+    </p>
+  </section>
+
+  <!-- 4) Rydberg Atoms Simulation -->
+  <section class="card">
+    <h3><a href="https://github.com/kl543/rydberg-dynamics" target="_blank" rel="noreferrer">
+      Rydberg Atoms: Time Evolution & Phase Flips
+    </a></h3>
+    <div class="muted">Python · Schrödinger dynamics · ODE solvers</div>
+    <p>
+      Undergraduate project: numerical simulation of Rydberg atom wavefunction dynamics, 
+      focusing on time evolution and phase-flip phenomena. Visualized population and fidelity 
+      versus time.
+    </p>
+    <p>
+      <a class="btn" href="https://github.com/kl543/rydberg-dynamics" target="_blank" rel="noreferrer">Repository</a>
+      <a class="btn" href="rydberg.html">Details</a>
+    </p>
+  </section>
+
+  <!-- 5) Berkeley Computational Physics: Cellular Automata -->
+  <section class="card">
+    <h3><a href="https://github.com/kl543/ca-physics-berkeley" target="_blank" rel="noreferrer">
+      Cellular Automata (Berkeley Computational Physics)
+    </a></h3>
+    <div class="muted">Python · CA models · parameter sweeps · visualization</div>
+    <p>
+      Course project: implemented predator–prey and other cellular automata. 
+      Explored stability regimes, performed parameter sweeps, and visualized emergent behavior. 
+      Emphasis on reproducibility and automation.
+    </p>
+    <p>
+      <a class="btn" href="https://github.com/kl543/ca-physics-berkeley" target="_blank" rel="noreferrer">Repository</a>
+      <a class="btn" href="ca-berkeley.html">Details</a>
+    </p>
+  </section>
+</main>
