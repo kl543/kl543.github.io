@@ -9,10 +9,9 @@
 <body>
   <header>
     <h1>Research Interests</h1>
-    <p>Numerics, automation, interpretable ML for experimental data</p>
+    <p>Numerics, ML/AI, and data methods for experimental science</p>
   </header>
 
-  <!-- 顶部导航（与其他页面一致），当前页加 active -->
   <nav>
     <a href="index.html">About</a>
     <a class="active" href="interests.html">Interests</a>
@@ -22,46 +21,31 @@
   </nav>
 
   <main>
-    <section>
-      <h2>Overview</h2>
-      <p>
-        I grew up as an experimentalist (MBE growth + STM measurement), and that work
-        heavily trained my coding: device control, automated data pipelines, and simulation.
-        I’m now intentionally pivoting to <b>AI/ML</b> and <b>large-scale data processing</b>,
-        while formalizing the math and CS foundations behind them. I’m a fast, self-directed
-        learner and enjoy turning messy experimental data into clear, reproducible results.
-      </p>
-    </section>
-
-    <section>
-      <h3>Previously</h3>
+    <section class="card">
+      <h2>Focus</h2>
       <ul>
-        <li>MBE growth of high-quality films:
-          Fe(Se,Te)/Bi<sub>2</sub>Te<sub>3</sub> (SC/TI),
-          MnTe/Bi<sub>2</sub>Te<sub>3</sub> (altermagnet/TI),
-          and K<sub>3</sub>C<sub>60</sub> (candidate for light-induced superconductivity; T<sub>c</sub> ≈ 19 K).
-        </li>
-        <li>STM measurements of thin films: topography & dI/dV, reliable tip conditioning, and automated processing.</li>
-        <li>Wrote an MBE feedback controller; built STM data pipelines; developed a QPI toolkit (JDOS & spin-polarized QPI).</li>
+        <li><b>ML/AI</b> for pattern recognition and modeling (feature engineering, regularized models, basic neural nets).</li>
+        <li><b>Statistical modeling</b> &amp; <b>Bayesian inference</b>; Monte Carlo for uncertainty estimation.</li>
+        <li><b>Optimization</b> (convex / gradient-based) for model fitting and inverse problems.</li>
+        <li><b>Time-series &amp; stochastic modeling</b> (AR/ARIMA, state-space; applied stochastic processes).</li>
       </ul>
     </section>
 
-    <section>
-      <h3>Now</h3>
+    <section class="card">
+      <h2>This Semester</h2>
       <ul>
-        <li>Numerical methods &amp; <b>optimization</b> (convex/non-convex), inverse problems, uncertainty modeling.</li>
-        <li><b>Probability &amp; statistics</b>: estimation, hypothesis testing, Bayesian reasoning, Monte Carlo.</li>
-        <li><b>Time-series &amp; spectral analysis</b>: FFT/CWT, AR/ARIMA, state-space models, system identification.</li>
-        <li><b>Machine learning</b>: feature engineering, linear/regularized models, tree/boosting, model selection.</li>
-        <li>Reproducible, config-driven pipelines; robust logging; device interfacing and automation.</li>
+        <li>MATH 564 — Applied Stochastic Processes</li>
+        <li>PHYS 503 — Instrumentation Physics: Applied Machine Learning</li>
       </ul>
     </section>
 
-    <section>
-      <h3>Currently Studying</h3>
+    <section class="card">
+      <h2>Next Up</h2>
       <ul>
-        <li>Linear algebra, numerical optimization, probability &amp; statistics, stochastic processes.</li>
-        <li>Data structures &amp; algorithms, software design/testing, scalable data handling.</li>
+        <li>Convex Optimization</li>
+        <li>Statistical Learning</li>
+        <li>Time-Series Analysis</li>
+        <li>Numerical Linear Algebra</li>
       </ul>
     </section>
 
@@ -71,21 +55,16 @@
         <span class="pill">NumPy / SciPy</span>
         <span class="pill">Pandas</span>
         <span class="pill">Matplotlib</span>
-        <span class="pill">FFT &amp; Signal Processing</span>
+        <span class="pill">ML / AI</span>
         <span class="pill">Optimization</span>
         <span class="pill">Probability &amp; Statistics</span>
-        <span class="pill">Time-series Analysis</span>
-        <span class="pill">Monte Carlo</span>
-        <span class="pill">Data Structures &amp; Algorithms</span>
-        <span class="pill">Automation / Control</span>
+        <span class="pill">Time-series</span>
         <span class="pill">Reproducible Pipelines</span>
       </p>
     </section>
   </main>
 
   <footer>© <span id="y"></span> Kaiming Liu</footer>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
