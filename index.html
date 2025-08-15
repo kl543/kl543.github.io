@@ -11,6 +11,7 @@
     <h1>Kaiming Liu</h1>
     <p>Physics PhD Student @ UIUC — Computational methods, automation, and data-driven analysis</p>
   </header>
+
   <nav>
     <a class="active" href="index.html">About</a>
     <a href="interests.html">Interests</a>
@@ -18,22 +19,67 @@
     <a href="coursework.html">Coursework</a>
     <a href="contact.html">Contact</a>
   </nav>
+
   <main>
-    <section>
+    <!-- About -->
+    <section class="card">
       <h2>About</h2>
       <p>
-        I am a Physics PhD student at UIUC. My recent work focuses on building <b>automation</b> for laboratory systems
-        and developing <b>numerical/ML-assisted</b> pipelines for spectroscopy and imaging data. I like problems that
-        combine algorithms, clean software, and careful validation on real measurements.
+        I am a Physics PhD student at UIUC. My background is experimental: MBE growth of
+        high-quality thin films and STM measurements (topography, dI/dV, and reliable tip
+        conditioning). As an undergraduate I spent about six months on STM-based experimental
+        research, and later more than a year on computational work modeling Rydberg-atom
+        dynamics. I am now moving toward <b>computational physics</b> and data-centric methods,
+        with a focus on numerics, optimization, statistics, signal processing, and clean,
+        reproducible software.
       </p>
       <div>
-        <span class="tag">Python</span><span class="tag">NumPy / SciPy</span><span class="tag">Pandas</span>
-        <span class="tag">Matplotlib</span><span class="tag">rhkpy</span><span class="tag">Optimization</span>
-        <span class="tag">Control</span>
+        <span class="tag">Python</span>
+        <span class="tag">NumPy / SciPy</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">FFT / Signal Processing</span>
+        <span class="tag">Optimization</span>
+        <span class="tag">Probability &amp; Statistics</span>
+        <span class="tag">Time-series</span>
+        <span class="tag">Automation / SCPI</span>
+        <span class="tag">Reproducible Pipelines</span>
       </div>
     </section>
+
+    <!-- Education (from CV; projects are shown on the Projects page) -->
+    <section class="card">
+      <h2>Education</h2>
+      <table style="width:100%;border-collapse:collapse">
+        <tbody>
+          <tr>
+            <td><b>University of Illinois Urbana-Champaign</b></td>
+            <td>Ph.D. in Physics</td>
+            <td style="text-align:right">2023 – present</td>
+          </tr>
+          <tr><td colspan="3" style="height:10px"></td></tr>
+          <tr>
+            <td><b>[Your Undergraduate University]</b></td>
+            <td>B.S. in Physics</td>
+            <td style="text-align:right">[Year]</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Interests & Hobbies -->
+    <section class="card">
+      <h2>Interests</h2>
+      <p>
+        Numerics and data methods for experimental science; small robust tools; clear visualization;
+        and reproducible workflows. Outside the lab I enjoy long walks, coffee, and simple side projects.
+      </p>
+    </section>
   </main>
+
   <footer>© <span id="y"></span> Kaiming Liu</footer>
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
