@@ -12,35 +12,41 @@
     <p>Feel free to reach out</p>
   </header>
 
-  <!-- 顶部导航（保持与你其他页面一致） -->
-  <nav>
+  <!-- 统一导航：同一段 HTML，样式来自 style.css 里的 .site-nav -->
+  <nav class="site-nav">
     <a href="index.html">About</a>
     <a href="interests.html">Interests</a>
     <a href="projects.html">Projects</a>
     <a href="coursework.html">Coursework</a>
-    <a class="active" href="contact.html">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
   <main>
     <section>
       <h2>Get in touch</h2>
       <ul>
-        <li>Email: kl54@illinois.edu</li>
+        <li>Email: <a href="mailto:kl54@illinois.edu">kl54@illinois.edu</a></li>
         <li>GitHub: <a href="https://github.com/kl543" rel="noreferrer">github.com/kl543</a></li>
         <li>LinkedIn: <a href="https://www.linkedin.com/in/kaiming-l-9a166526a/" rel="noreferrer">LinkedIn</a></li>
       </ul>
 
-      <!-- 这里把原来的 gray 文本换成本地 PDF 的下载按钮 -->
       <p>
         <a class="btn" href="assets/cv/Kaiming_Liu_CV.pdf">Download CV (PDF)</a>
       </p>
-      <!-- 如果你想让它在新标签打开，就在上面的 <a> 加上 target="_blank" rel="noopener" -->
     </section>
   </main>
 
   <footer>© <span id="y"></span> Kaiming Liu</footer>
+
+  <!-- 统一高亮：自动为当前页面对应的链接加 aria-current="page" -->
   <script>
+  (function () {
+    var path = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".site-nav a").forEach(function(a){
+      if (a.getAttribute("href") === path) a.setAttribute("aria-current","page");
+    });
     document.getElementById('y').textContent = new Date().getFullYear();
+  })();
   </script>
 </body>
 </html>
