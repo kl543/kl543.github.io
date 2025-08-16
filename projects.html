@@ -2,26 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Selected Projects — Kaiming Liu</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <h1>Selected Projects</h1>
-    <div class="muted">Automation • Data processing • Reproducible pipelines</div>
+    <p>Automation • Data processing • Reproducible pipelines</p>
   </header>
 
-  <nav>
+  <!-- 统一导航：与其它四页完全一致 -->
+  <nav class="site-nav">
     <a href="index.html">About</a>
     <a href="interests.html">Interests</a>
-    <a class="active" href="projects.html">Projects</a>
+    <a href="projects.html">Projects</a>
     <a href="coursework.html">Coursework</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <main>
-
     <!-- 1) MBE Feedback Controller -->
     <section class="card link-card" data-link="https://kl543.github.io/mbe3-controller/">
       <h3>MBE Heating Stage Feedback Controller</h3>
@@ -135,21 +135,28 @@
         <a class="btn" href="ca-berkeley.html">Details</a>
       </p>
     </section>
-
   </main>
 
+  <!-- 统一高亮 + 卡片整块可点击（不影响内部按钮） -->
   <script>
-  // Make the entire card clickable while keeping inner links working
-  document.querySelectorAll('.link-card').forEach(card => {
-    const url = card.dataset.link;
-    if (!url) return;
-    card.style.cursor = 'pointer';
-    card.addEventListener('click', (e) => {
-      // If user clicked an inner link/button, don't hijack
-      if (e.target.closest('a, button')) return;
-      window.open(url, '_self');  // change to '_blank' if you prefer new tab
+  (function () {
+    // 高亮当前导航
+    var path = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".site-nav a").forEach(function(a){
+      if (a.getAttribute("href") === path) a.setAttribute("aria-current","page");
     });
-  });
+
+    // 卡片整块可点击
+    document.querySelectorAll(".link-card").forEach(function(card){
+      var url = card.getAttribute("data-link");
+      if (!url) return;
+      card.style.cursor = "pointer";
+      card.addEventListener("click", function(e){
+        if (e.target.closest("a,button")) return; // 点到内部链接/按钮不拦截
+        window.location.href = url;
+      });
+    });
+  })();
   </script>
 </body>
 </html>
