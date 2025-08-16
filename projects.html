@@ -5,19 +5,6 @@
   <title>Selected Projects — Kaiming Liu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css">
-
-  <!-- tiny fallback (只为确保本页导航与按钮风格一致；可与 style.css 共存) -->
-  <style>
-    :root { --line:#eee; --ink:#111; }
-    .site-nav{background:#111;display:flex;gap:18px;justify-content:center;padding:10px 0 16px}
-    .site-nav a{color:#fff;text-decoration:none;padding:6px 10px;border-radius:8px;opacity:.95}
-    .site-nav a[aria-current="page"],.site-nav a:hover{background:rgba(255,255,255,.12)}
-    .btn{display:inline-block;border:1px solid var(--line);padding:8px 12px;border-radius:10px;
-         text-decoration:none;background:#fafafa;color:var(--ink)}
-    .btn:hover{background:#f3f3f3}
-    .btn:visited{color:var(--ink);text-decoration:none}
-    .link-card{cursor:pointer}
-  </style>
 </head>
 <body>
   <header>
@@ -93,7 +80,7 @@
       </p>
     </section>
 
-    <!-- 4) Rydberg（合并后的单一条目；指向你的新站点与仓库） -->
+    <!-- 4) Rydberg (合并原 #4 + #5) -->
     <section class="card link-card" data-link="https://kl543.github.io/rydberg-atoms-simulation-/">
       <h3>Rydberg Polaritons — Relative-Phase Dynamics</h3>
       <p>
@@ -103,8 +90,8 @@
         <span class="tag">1D/2D</span>
       </p>
       <p>
-        Compact visualizations of biphoton/triphoton relative-phase evolution in quasi-1D media under Rydberg blockade,
-        with matching schematic figures and MP4 clips.
+        Compact visualizations of biphoton/triphoton relative-phase evolution under Rydberg blockade,
+        with matching schematic figures and MP4 clips. Repository includes MATLAB scripts plus auto-generated docs.
       </p>
       <p>
         <a class="btn" href="https://kl543.github.io/rydberg-atoms-simulation-/" rel="noreferrer">Live Page</a>
@@ -132,21 +119,21 @@
     </section>
   </main>
 
-  <!-- 高亮当前导航 + 卡片整块可点击 -->
   <script>
   (function () {
-    // 导航高亮
+    // 统一高亮当前导航项
     var path = location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".site-nav a").forEach(function(a){
       if (a.getAttribute("href") === path) a.setAttribute("aria-current","page");
     });
-    // 卡片整块可点击（内部按钮正常工作）
+    // 卡片整块可点击（不拦截内部按钮）
     document.querySelectorAll(".link-card").forEach(function(card){
       var url = card.getAttribute("data-link");
       if (!url) return;
+      card.style.cursor = "pointer";
       card.addEventListener("click", function(e){
         if (e.target.closest("a,button")) return;
-        window.location.href = url;
+        location.href = url;
       });
     });
   })();
