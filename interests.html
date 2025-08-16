@@ -12,9 +12,10 @@
     <p>Numerics, ML/AI, and data methods for experimental science</p>
   </header>
 
-  <nav>
+  <!-- 统一导航 -->
+  <nav class="site-nav">
     <a href="index.html">About</a>
-    <a class="active" href="interests.html">Interests</a>
+    <a href="interests.html">Interests</a>
     <a href="projects.html">Projects</a>
     <a href="coursework.html">Coursework</a>
     <a href="contact.html">Contact</a>
@@ -51,20 +52,30 @@
 
     <section>
       <p>
-        <span class="pill">Python</span>
-        <span class="pill">NumPy / SciPy</span>
-        <span class="pill">Pandas</span>
-        <span class="pill">Matplotlib</span>
-        <span class="pill">ML / AI</span>
-        <span class="pill">Optimization</span>
-        <span class="pill">Probability &amp; Statistics</span>
-        <span class="pill">Time-series</span>
-        <span class="pill">Reproducible Pipelines</span>
+        <span class="tag">Python</span>
+        <span class="tag">NumPy / SciPy</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Matplotlib</span>
+        <span class="tag">ML / AI</span>
+        <span class="tag">Optimization</span>
+        <span class="tag">Probability &amp; Statistics</span>
+        <span class="tag">Time-series</span>
+        <span class="tag">Reproducible Pipelines</span>
       </p>
     </section>
   </main>
 
   <footer>© <span id="y"></span> Kaiming Liu</footer>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <!-- 自动高亮当前导航项 & 年份 -->
+  <script>
+  (function () {
+    var path = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".site-nav a").forEach(function(a){
+      if (a.getAttribute("href") === path) a.setAttribute("aria-current","page");
+    });
+    document.getElementById('y').textContent = new Date().getFullYear();
+  })();
+  </script>
 </body>
 </html>
