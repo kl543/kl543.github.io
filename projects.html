@@ -5,6 +5,19 @@
   <title>Selected Projects — Kaiming Liu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css">
+
+  <!-- tiny fallback (只为确保本页导航与按钮风格一致；可与 style.css 共存) -->
+  <style>
+    :root { --line:#eee; --ink:#111; }
+    .site-nav{background:#111;display:flex;gap:18px;justify-content:center;padding:10px 0 16px}
+    .site-nav a{color:#fff;text-decoration:none;padding:6px 10px;border-radius:8px;opacity:.95}
+    .site-nav a[aria-current="page"],.site-nav a:hover{background:rgba(255,255,255,.12)}
+    .btn{display:inline-block;border:1px solid var(--line);padding:8px 12px;border-radius:10px;
+         text-decoration:none;background:#fafafa;color:var(--ink)}
+    .btn:hover{background:#f3f3f3}
+    .btn:visited{color:var(--ink);text-decoration:none}
+    .link-card{cursor:pointer}
+  </style>
 </head>
 <body>
   <header>
@@ -12,7 +25,7 @@
     <p>Automation • Data processing • Reproducible pipelines</p>
   </header>
 
-  <!-- 统一导航：与其它四页完全一致 -->
+  <!-- 统一导航 -->
   <nav class="site-nav">
     <a href="index.html">About</a>
     <a href="interests.html">Interests</a>
@@ -80,8 +93,8 @@
       </p>
     </section>
 
-    <!-- 4) Rydberg Polaritons — Relative-Phase Dynamics -->
-    <section class="card link-card" data-link="https://kl543.github.io/rydberg-polaritons-relphase/">
+    <!-- 4) Rydberg（合并后的单一条目；指向你的新站点与仓库） -->
+    <section class="card link-card" data-link="https://kl543.github.io/rydberg-atoms-simulation-/">
       <h3>Rydberg Polaritons — Relative-Phase Dynamics</h3>
       <p>
         <span class="tag">MATLAB</span>
@@ -94,30 +107,12 @@
         with matching schematic figures and MP4 clips.
       </p>
       <p>
-        <a class="btn" href="https://kl543.github.io/rydberg-polaritons-relphase/" rel="noreferrer">Live Page</a>
-        <a class="btn" href="https://github.com/kl543/rydberg-polaritons-relphase" rel="noreferrer">Repository</a>
+        <a class="btn" href="https://kl543.github.io/rydberg-atoms-simulation-/" rel="noreferrer">Live Page</a>
+        <a class="btn" href="https://github.com/kl543/rydberg-atoms-simulation-" rel="noreferrer">Repository</a>
       </p>
     </section>
 
-    <!-- 5) Rydberg Atoms Simulation -->
-    <section class="card link-card" data-link="rydberg.html">
-      <h3>Rydberg Atoms: Time Evolution &amp; Phase Flips</h3>
-      <p>
-        <span class="tag">Python</span>
-        <span class="tag">Schrödinger dynamics</span>
-        <span class="tag">ODE solvers</span>
-      </p>
-      <p>
-        Undergraduate project: numerical simulation of Rydberg-atom wavefunction dynamics,
-        focusing on time evolution and phase-flip phenomena. Visualized population and fidelity over time.
-      </p>
-      <p>
-        <a class="btn" href="https://github.com/kl543/rydberg-dynamics" rel="noreferrer">Repository</a>
-        <a class="btn" href="rydberg.html">Details</a>
-      </p>
-    </section>
-
-    <!-- 6) Cellular Automata -->
+    <!-- 5) Cellular Automata -->
     <section class="card link-card" data-link="ca-berkeley.html">
       <h3>Cellular Automata (Berkeley Computational Physics)</h3>
       <p>
@@ -137,22 +132,20 @@
     </section>
   </main>
 
-  <!-- 统一高亮 + 卡片整块可点击（不影响内部按钮） -->
+  <!-- 高亮当前导航 + 卡片整块可点击 -->
   <script>
   (function () {
-    // 高亮当前导航
+    // 导航高亮
     var path = location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".site-nav a").forEach(function(a){
       if (a.getAttribute("href") === path) a.setAttribute("aria-current","page");
     });
-
-    // 卡片整块可点击
+    // 卡片整块可点击（内部按钮正常工作）
     document.querySelectorAll(".link-card").forEach(function(card){
       var url = card.getAttribute("data-link");
       if (!url) return;
-      card.style.cursor = "pointer";
       card.addEventListener("click", function(e){
-        if (e.target.closest("a,button")) return; // 点到内部链接/按钮不拦截
+        if (e.target.closest("a,button")) return;
         window.location.href = url;
       });
     });
