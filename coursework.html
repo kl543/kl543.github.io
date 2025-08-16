@@ -7,12 +7,14 @@
 
   <link rel="stylesheet" href="style.css" />
 
-  <!-- 仅本页的表格样式；不影响全站 -->
+  <!-- 仅本页样式（表格 + 让副标题与主标题同色） -->
   <style>
     .table-cw { width:100%; border-collapse:collapse; }
     .table-cw th, .table-cw td { padding:8px 10px; border-bottom:1px solid var(--line); text-align:left; }
     .table-cw th { font-weight:600; background:#fafafa; }
     .right { text-align:right; }
+    /* 覆盖全站的 .muted：仅本页把页眉副标题设为纯白 */
+    header .muted { color:#fff; opacity:1; }
   </style>
 </head>
 <body>
