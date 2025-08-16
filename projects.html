@@ -9,22 +9,22 @@
 <body>
   <header>
     <h1>Selected Projects</h1>
-    <p>Automation • Data processing • Reproducible pipelines</p>
+    <div class="muted">Automation • Data processing • Reproducible pipelines</div>
   </header>
 
-  <!-- 统一导航（和其他页面一致） -->
-  <nav class="site-nav">
+  <nav>
     <a href="index.html">About</a>
     <a href="interests.html">Interests</a>
-    <a href="projects.html">Projects</a>
+    <a class="active" href="projects.html">Projects</a>
     <a href="coursework.html">Coursework</a>
     <a href="contact.html">Contact</a>
   </nav>
 
   <main>
+
     <!-- 1) MBE Feedback Controller -->
-    <section class="card">
-      <h2 style="border:0;margin:0 0 8px;padding:0">MBE Heating Stage Feedback Controller</h2>
+    <section class="card link-card" data-link="https://kl543.github.io/mbe3-controller/">
+      <h3>MBE Heating Stage Feedback Controller</h3>
       <p>
         <span class="tag">Python</span>
         <span class="tag">SCPI</span>
@@ -37,14 +37,14 @@
         Includes logging, system identification for tuning, and replay capability to reduce manual operation during MBE growth.
       </p>
       <p>
-        <a class="btn" href="https://kl543.github.io/mbe3-controller/">Live Docs</a>
-        <a class="btn" href="https://github.com/kl543/mbe3-controller">Code</a>
+        <a class="btn" href="https://kl543.github.io/mbe3-controller/" rel="noreferrer">Live Docs</a>
+        <a class="btn" href="https://github.com/kl543/mbe3-controller" rel="noreferrer">Code</a>
       </p>
     </section>
 
     <!-- 2) STM Data Toolkit -->
-    <section class="card">
-      <h2 style="border:0;margin:0 0 8px;padding:0">STM Data Toolkit (Topography &amp; dI/dV linecuts)</h2>
+    <section class="card link-card" data-link="https://kl543.github.io/stm-toolkit/">
+      <h3>STM Data Toolkit (Topography &amp; dI/dV linecuts)</h3>
       <p>
         <span class="tag">Python</span>
         <span class="tag">numpy/pandas</span>
@@ -56,14 +56,14 @@
         dI/dV linecut extraction, and batch figure export. Config-driven for reproducibility.
       </p>
       <p>
-        <a class="btn" href="https://kl543.github.io/stm-toolkit/">Live Page</a>
-        <a class="btn" href="https://github.com/kl543/stm-toolkit">Repository</a>
+        <a class="btn" href="https://kl543.github.io/stm-toolkit/" rel="noreferrer">Live Page</a>
+        <a class="btn" href="https://github.com/kl543/stm-toolkit" rel="noreferrer">Repository</a>
       </p>
     </section>
 
     <!-- 3) QPI Toolkit -->
-    <section class="card">
-      <h2 style="border:0;margin:0 0 8px;padding:0">QPI Toolkit (JDOS &amp; spin-polarized QPI)</h2>
+    <section class="card link-card" data-link="https://kl543.github.io/qpi-toolkit/">
+      <h3>QPI Toolkit (JDOS &amp; spin-polarized QPI)</h3>
       <p>
         <span class="tag">Python</span>
         <span class="tag">FFT</span>
@@ -75,14 +75,14 @@
         extract CEC from models or data, enumerate scattering vectors, and synthesize JDOS/QPI maps for STM comparison.
       </p>
       <p>
-        <a class="btn" href="https://kl543.github.io/qpi-toolkit/">Live Page</a>
-        <a class="btn" href="https://github.com/kl543/qpi-toolkit">Repository</a>
+        <a class="btn" href="https://kl543.github.io/qpi-toolkit/" rel="noreferrer">Live Page</a>
+        <a class="btn" href="https://github.com/kl543/qpi-toolkit" rel="noreferrer">Repository</a>
       </p>
     </section>
 
     <!-- 4) Rydberg Polaritons — Relative-Phase Dynamics -->
-    <section class="card">
-      <h2 style="border:0;margin:0 0 8px;padding:0">Rydberg Polaritons — Relative-Phase Dynamics</h2>
+    <section class="card link-card" data-link="https://kl543.github.io/rydberg-polaritons-relphase/">
+      <h3>Rydberg Polaritons — Relative-Phase Dynamics</h3>
       <p>
         <span class="tag">MATLAB</span>
         <span class="tag">Visualization</span>
@@ -94,14 +94,32 @@
         with matching schematic figures and MP4 clips.
       </p>
       <p>
-        <a class="btn" href="https://kl543.github.io/rydberg-atoms-simulation-/">Live Page</a>
-        <a class="btn" href="https://github.com/kl543/rydberg-atoms-simulation-">Repository</a>
+        <a class="btn" href="https://kl543.github.io/rydberg-polaritons-relphase/" rel="noreferrer">Live Page</a>
+        <a class="btn" href="https://github.com/kl543/rydberg-polaritons-relphase" rel="noreferrer">Repository</a>
       </p>
     </section>
 
-    <!-- 5) Cellular Automata -->
-    <section class="card">
-      <h2 style="border:0;margin:0 0 8px;padding:0">Cellular Automata (Berkeley Computational Physics)</h2>
+    <!-- 5) Rydberg Atoms Simulation -->
+    <section class="card link-card" data-link="rydberg.html">
+      <h3>Rydberg Atoms: Time Evolution &amp; Phase Flips</h3>
+      <p>
+        <span class="tag">Python</span>
+        <span class="tag">Schrödinger dynamics</span>
+        <span class="tag">ODE solvers</span>
+      </p>
+      <p>
+        Undergraduate project: numerical simulation of Rydberg-atom wavefunction dynamics,
+        focusing on time evolution and phase-flip phenomena. Visualized population and fidelity over time.
+      </p>
+      <p>
+        <a class="btn" href="https://github.com/kl543/rydberg-dynamics" rel="noreferrer">Repository</a>
+        <a class="btn" href="rydberg.html">Details</a>
+      </p>
+    </section>
+
+    <!-- 6) Cellular Automata -->
+    <section class="card link-card" data-link="ca-berkeley.html">
+      <h3>Cellular Automata (Berkeley Computational Physics)</h3>
       <p>
         <span class="tag">Python</span>
         <span class="tag">CA models</span>
@@ -113,20 +131,25 @@
         and visualized emergent behavior with a focus on reproducibility and automation.
       </p>
       <p>
-        <a class="btn" href="https://github.com/kl543/ca-physics-berkeley">Repository</a>
+        <a class="btn" href="https://github.com/kl543/ca-physics-berkeley" rel="noreferrer">Repository</a>
         <a class="btn" href="ca-berkeley.html">Details</a>
       </p>
     </section>
+
   </main>
 
-  <!-- 自动高亮当前导航项（与其它页面同一段脚本） -->
   <script>
-    (function(){
-      var path = location.pathname.split("/").pop() || "index.html";
-      document.querySelectorAll(".site-nav a").forEach(function(a){
-        if (a.getAttribute("href") === path) a.setAttribute("aria-current","page");
-      });
-    })();
+  // Make the entire card clickable while keeping inner links working
+  document.querySelectorAll('.link-card').forEach(card => {
+    const url = card.dataset.link;
+    if (!url) return;
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', (e) => {
+      // If user clicked an inner link/button, don't hijack
+      if (e.target.closest('a, button')) return;
+      window.open(url, '_self');  // change to '_blank' if you prefer new tab
+    });
+  });
   </script>
 </body>
 </html>
