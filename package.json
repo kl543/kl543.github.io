@@ -1,0 +1,15 @@
+{
+  "name": "kaiming-liu-academic-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "node scripts/sync-cv.mjs && astro dev",
+    "build": "node scripts/generate-cv.mjs --check && node scripts/sync-cv.mjs && astro build && node scripts/verify-site.mjs",
+    "preview": "astro preview",
+    "cv:source": "node scripts/generate-cv.mjs",
+    "cv:build": "node scripts/generate-cv.mjs && node scripts/compile-cv.mjs && node scripts/sync-cv.mjs"
+  },
+  "dependencies": { "astro": "7.3.5" }
+}

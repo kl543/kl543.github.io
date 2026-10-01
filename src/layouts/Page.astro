@@ -1,0 +1,49 @@
+---
+import profile from '../data/profile.json';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  hasWriting?: boolean;
+}
+const { title = `${profile.name} — Physics & Scientific Machine Learning`, description = profile.description, hasWriting = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, profile.website);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${profile.website}images/kaiming-liu.jpg`} />
+    <meta property="og:image:alt" content="Portrait of Kaiming Liu" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page">
+      <header class="site-header">
+        <a class="site-name" href="/">{profile.name}</a>
+        <nav aria-label="Main navigation">
+          <a href="/#about">About</a>
+          <a href="/#research">Research</a>
+          {hasWriting && <a href="/#writing">Writing</a>}
+          <a href={profile.cvUrl} aria-label="Curriculum vitae (PDF)">CV</a>
+        </nav>
+      </header>
+      <main id="main"><slot /></main>
+      <footer class="site-footer">
+        <span>{profile.name} · University of Illinois Urbana-Champaign</span>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      </footer>
+    </div>
+  </body>
+</html>

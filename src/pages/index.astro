@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '../layouts/Page.astro';
+import Publications from '../components/Publications.astro';
+import profile from '../data/profile.json';
+const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Page hasWriting={writing.length > 0}>
+  <section id="about" class="intro" aria-labelledby="name">
+    <div class="intro-text">
+      <h1 id="name">{profile.name}</h1>
+      <p class="affiliation">{profile.title}<br />{profile.institution}</p>
+      <p>I am a {profile.title} in {profile.advisor}’s group at the {profile.institution}.</p>
+      {profile.bio.map(paragraph => <p>{paragraph}</p>)}
+      <ul class="contact-links" aria-label="Contact and professional links">
+        <li><a href={`mailto:${profile.email}`}>Email</a></li>
+        <li><a href={profile.github}>GitHub</a></li>
+        <li><a href={profile.linkedin}>LinkedIn</a></li>
+        <li><a href={profile.cvUrl}>CV <span class="file-type">(PDF)</span></a></li>
+      </ul>
+    </div>
+    <img class="portrait" src="/images/kaiming-liu.jpg" alt="Portrait of Kaiming Liu" width="420" height="420" fetchpriority="high" decoding="async" />
+  </section>
+
+  <section id="research" aria-labelledby="research-heading">
+    <h2 id="research-heading">Research</h2>
+    <div class="research-list">
+      {profile.research.map(topic => (
+        <article>
+          <h3>{topic.title}</h3>
+          <p>{topic.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <Publications />
+
+  <section id="background" aria-labelledby="background-heading">
+    <h2 id="background-heading">Experimental background</h2>
+    <p>{profile.background}</p>
+  </section>
+
+  <section id="education" aria-labelledby="education-heading">
+    <h2 id="education-heading">Education</h2>
+    <ul class="education-list">
+      {profile.education.filter(entry => entry.homepage).map(entry => (
+        <li>
+          <div class="entry-heading"><h3>{entry.institution}</h3><span class="dates">{entry.shortDates}</span></div>
+          <p>{entry.degree}</p>
+        </li>
+      ))}
+    </ul>
+    {profile.honors.filter(honor => honor.homepage).map(honor => <p class="selected-honor">{honor.name}, {honor.year}.</p>)}
+  </section>
+
+  {writing.length > 0 && (
+    <section id="writing" aria-labelledby="writing-heading">
+      <h2 id="writing-heading">Writing</h2>
+      <ul class="writing-list">
+        {writing.map(post => <li><a href={`/writing/${post.id}/`}>{post.data.title}</a><p>{post.data.description}</p></li>)}
+      </ul>
+    </section>
+  )}
+</Page>
