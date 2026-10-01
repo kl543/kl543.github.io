@@ -2,7 +2,9 @@
 import { getCollection } from 'astro:content';
 import Page from '../layouts/Page.astro';
 import Publications from '../components/Publications.astro';
+import Talks from '../components/Talks.astro';
 import profile from '../data/profile.json';
+import talks from '../data/talks.json';
 const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 <Page home hasWriting={writing.length > 0}>
@@ -16,6 +18,7 @@ const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort
         <li><a href={profile.github}>GitHub</a></li>
         <li><a href={profile.linkedin}>LinkedIn</a></li>
         {writing.length > 0 && <li><a href="#writing">Writing</a></li>}
+        {talks.length > 0 && <li><a href="#talks">Talks</a></li>}
       </ul>
     </div>
     <img class="portrait" src="/images/kaiming-liu.jpg" alt="Portrait of Kaiming Liu" width="420" height="420" fetchpriority="high" decoding="async" />
@@ -30,7 +33,7 @@ const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort
 
   <Publications />
 
-  <p id="education" class="background-note">Before UIUC, I earned my {profile.education[1].degree} at {profile.education[1].institution} in 2023. Details of my education, earlier research, and teaching are in my <a href={profile.cvUrl}>CV</a>.</p>
+  <p id="education" class="background-note">Before UIUC, I studied in {profile.education[1].institution}’s Special Class for the Gifted Young and later completed a {profile.education[1].degree}. Further background is in my <a href={profile.cvUrl}>CV</a>.</p>
 
   {writing.length > 0 && (
     <section id="writing" aria-labelledby="writing-heading">
@@ -40,4 +43,5 @@ const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort
       </ul>
     </section>
   )}
+  <Talks />
 </Page>

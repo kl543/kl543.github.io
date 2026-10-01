@@ -1,0 +1,29 @@
+---
+import entries from '../data/talks.json';
+
+interface Talk {
+  title: string;
+  event: string;
+  date: string;
+  url?: string;
+  slides?: string;
+  video?: string;
+}
+const talks = [...entries as Talk[]].sort((a, b) => b.date.localeCompare(a.date));
+---
+{talks.length > 0 && (
+  <section id="talks" aria-labelledby="talks-heading">
+    <h2 id="talks-heading">Talks</h2>
+    <ul class="publications">
+      {talks.map(talk => (
+        <li>
+          <time class="paper-year" datetime={talk.date}>{talk.date.slice(0, 4)}</time>
+          <div>
+            {talk.url ? <a href={talk.url}>{talk.title}</a> : <span>{talk.title}</span>}
+            <p class="publication-meta">{talk.event}{talk.slides && <> · <a href={talk.slides}>slides</a></>}{talk.video && <> · <a href={talk.video}>video</a></>}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

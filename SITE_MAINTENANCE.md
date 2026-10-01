@@ -2,9 +2,9 @@
 
 ## Design principle
 
-[Jason Wei](https://www.jasonwei.net/) is the primary visual reference for the website: a continuous 620 px desktop reading column, a modest portrait to its left, native serif type, short paragraphs, slash-separated inline links, and a compact year/title publication list. The homepage has one name heading and no top navigation; detailed education and honors belong in the CV. Mobile uses a single column. No external fonts or browser JavaScript are needed.
+The reference survey included [Jason Wei](https://www.jasonwei.net/), [Tri Dao](https://tridao.me/), [Noam Brown](https://noambrown.com/), [Andrej Karpathy](https://karpathy.ai/), [Yilun Du](https://yilundu.github.io/), and [Shunyu Yao](https://alfredyao.github.io/). It informed a shared set of principles: identify the researcher immediately, explain a coherent research problem, keep links conventional, and let text carry the page. The final layout uses a centered 680 px reading column, Georgia at 18 px / 1.5, a 30 px name, 21 px headings, and one blue-gray accent. A 128 px portrait sits to the right of the intro only. Later sections occupy the full centered column. Mobile uses 17 px text and an 88 px portrait alongside the identity sentence. Detailed education and honors belong in the CV; the homepage retains a short XJTU background note. No external fonts or browser JavaScript are needed.
 
-[Jaehoon Hahm’s CV](https://jaehoon-hahm.github.io/Jaehoon_Hahm_CV.pdf) is the primary visual reference for the CV: large serif name, italic update date at top right, labelled horizontal contacts, muted green small-cap labels in an 86 pt left column, and a wide right content column. Institutions are blue links; degree/role lines and flush-right dates are italic. Publications put the bold title before authors and venue. Latin Modern at 11 pt keeps the two-page document readable and Overleaf compatible. Entries paginate as complete rows; avoid shrinking type or inserting blank space to force a page count. No reference prose, source code, or assets were copied.
+The CV survey included [Jaehoon Hahm](https://jaehoon-hahm.github.io/Jaehoon_Hahm_CV.pdf), [Yilun Du](https://yilundu.github.io/cv.pdf), [Shunyu Yao](https://alfredyao.github.io/Shunyu_Yao_CV.pdf), and [Tri Dao](https://tridao.me/assets/pdf/cv.pdf). The resulting document uses Latin Modern at 11 pt, one blue-gray accent, an 80 pt section-label column, black bold institutions and project names, and right-aligned italic dates. A short Research Profile replaces the keyword list. Education groups both XJTU stages under one institution; BPIE is explicitly non-degree. Current Research presents three named projects, each with compact method and validation bullets. Page one holds the profile, education, and current research; page two holds publications, prior research, teaching, honors, and skills. This page break follows the content hierarchy; recheck it as the CV grows. Avoid shrinking type or adding filler to preserve two pages. No reference prose, source code, or assets were copied.
 
 Keep the page readable and quiet. Do not add cards, decorative effects, badges, empty sections, or a portfolio-style hero.
 
@@ -15,6 +15,7 @@ Keep the page readable and quiet. Do not add cards, decorative effects, badges, 
 | Bio, research, background, contact links | `src/data/profile.json` |
 | Education, research roles, teaching, honors, skills, CV update date | `src/data/profile.json` |
 | Verified publications and preprints | `src/data/publications.json` |
+| Future public talks | `src/data/talks.json` |
 | Homepage ordering | `src/pages/index.astro` |
 | Typography, spacing, mobile layout | `src/styles/global.css` |
 | Portrait | `public/images/kaiming-liu.jpg` |
@@ -22,7 +23,9 @@ Keep the page readable and quiet. Do not add cards, decorative effects, badges, 
 | CV typography and generated content | `scripts/generate-cv.mjs` |
 | Standalone CV deliverables | `cv/Kaiming_Liu_CV.tex`, `cv/Kaiming_Liu_CV.pdf` |
 
-The JSON files are the public source of truth, shared by the website and CV generator. Do not silently change dates or earned-degree status. The detailed local evidence audit stays outside the public repository. Education and group dates were reconciled against the latest personal CV, `Jump_CV_Kaiming.pdf` (February 2026), with earlier personal CVs for teaching, undergraduate research, and education. Current inverse-problem descriptions come from the owner’s October 2026 instructions. The PNAS paper’s identity was confirmed by the owner; journal status was checked against PNAS, arXiv, publisher metadata, and UIUC.
+The JSON files are the public source of truth. Profile and publication data are shared by the website and CV generator. Do not silently change dates or earned-degree status. The detailed local evidence audit stays outside the public repository. Education and group dates were reconciled against the owner's February 2026 CV, with earlier personal CVs for teaching and undergraduate research. Current project descriptions were checked against final research summaries, selected reports, and documented implementations. The PNAS paper’s identity was confirmed by the owner; journal status was checked against PNAS, arXiv, publisher metadata, and UIUC.
+
+For CEF, the verified public description names a residual MLP, conditional Gaussian mixture models (cGMMs), multiple parameter candidates, and susceptibility forward checks. For magnetic scattering, it names MLP/ResNet conditional mixtures, powder-averaged neutron maps, exact Sunny forward checks, classical fits as references, and noise/scale/offset studies. For NNBF/VMC, it names JAX, lattice Hubbard models, parallel GPU computation, profiling, and numerical correctness checks. Do not reinterpret mixture weights as calibrated posterior coverage, reconstruction as unique parameter recovery, or exploratory timings as established speedups. PHYS 212 materials alone do not establish teaching appointment dates; only verified teaching terms belong in the CV.
 
 ## Build and deploy
 
@@ -76,6 +79,10 @@ Write the actual note here.
 
 Review the content, then change `draft` to `false`. The homepage automatically gains a Writing section and inline link, and the note appears at `/writing/descriptive-slug/`. No empty writing index is published. For math rendering, add a focused Markdown integration only when an actual note needs it.
 
+## Add talks later
+
+Add only a verified public talk to `src/data/talks.json`. Each object has `title`, `event`, and an ISO `date` (`YYYY-MM-DD`); `url`, `slides`, and `video` are optional public links. Dates determine descending order. The homepage gains a Talks section and inline link automatically, using the same quiet year/title layout as publications. Leave the list empty until there is real content. Talks do not enter the CV automatically; revise its content deliberately when needed.
+
 ## Update the CV
 
 Edit the canonical JSON and `updated` date, then run:
@@ -108,3 +115,5 @@ git worktree add ../kl543-old-site refs/tags/archive/pre-rebuild-20261001
 To roll back a published change, use a normal revert or a new restoration commit and push; do not force-push.
 
 The first Astro rebuild is also preserved at `checkpoint/v1-before-jason-jaehoon-polish-20261001` (commit `4ed546b`). The older archive branch and tag remain unchanged.
+
+The deployed second version is preserved at `checkpoint/v2-before-final-research-profile-polish-20261001` (commit `8507c00`), created before the final researcher-profile refinement.

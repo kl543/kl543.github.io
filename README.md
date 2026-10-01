@@ -17,6 +17,7 @@ npm run dev
 
 - `src/data/profile.json`: canonical public bio, research, education, dates, links, experience, and skills.
 - `src/data/publications.json`: verified papers; empty lists hide the section.
+- `src/data/talks.json`: future public talks; an empty list stays hidden.
 - `src/pages/index.astro`: homepage structure.
 - `src/styles/global.css`: restrained styling and responsive layout.
 - `public/images/kaiming-liu.jpg`: compressed portrait; the original image is kept outside this repository.
@@ -31,4 +32,4 @@ Push to `main`. `.github/workflows/deploy.yml` installs locked dependencies, bui
 
 The original website is preserved on both the branch and annotated tag `archive/pre-rebuild-20261001` at `f705797`. View it on GitHub or recover it in a separate worktree. No history was rewritten.
 
-See [SITE_MAINTENANCE.md](SITE_MAINTENANCE.md) for content updates, publication and writing workflows, CV maintenance, and privacy rules.
+See [SITE_MAINTENANCE.md](SITE_MAINTENANCE.md) for content updates, publication, writing and talk workflows, CV maintenance, and privacy rules.

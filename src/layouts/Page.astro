@@ -1,5 +1,6 @@
 ---
 import profile from '../data/profile.json';
+import talks from '../data/talks.json';
 import '../styles/global.css';
 
 interface Props {
@@ -9,7 +10,6 @@ interface Props {
   home?: boolean;
 }
 const { title = `${profile.name} — Physics & Scientific Machine Learning`, description = profile.description, hasWriting = false, home = false } = Astro.props;
-const updated = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${profile.updated}T00:00:00Z`));
 const canonical = new URL(Astro.url.pathname, profile.website);
 ---
 <!doctype html>
@@ -38,13 +38,11 @@ const canonical = new URL(Astro.url.pathname, profile.website);
           <a href="/#about">About</a>
           <a href="/#research">Research</a>
           {hasWriting && <a href="/#writing">Writing</a>}
+          {talks.length > 0 && <a href="/#talks">Talks</a>}
           <a href={profile.cvUrl} aria-label="Curriculum vitae (PDF)">CV</a>
         </nav>}
       </header>
       <main id="main"><slot /></main>
-      <footer class="site-footer">
-        <span>Updated {updated}</span>
-      </footer>
     </div>
   </body>
 </html>
