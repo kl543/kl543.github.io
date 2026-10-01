@@ -126,6 +126,12 @@
   "teaching": [
     {
       "institution": "University of Illinois Urbana-Champaign",
+      "role": "Teaching assistant, PHYS 212",
+      "dates": "Spring & Fall 2026",
+      "url": "https://illinois.edu/"
+    },
+    {
+      "institution": "University of Illinois Urbana-Champaign",
       "role": "Teaching assistant, PHYS 102",
       "dates": "Aug–Dec 2023",
       "text": "Led discussion and laboratory sections, held office hours, and provided feedback on assignments in electromagnetism and modern physics.",
