@@ -2,7 +2,9 @@
 
 ## Design principle
 
-[Jason Wei](https://www.jasonwei.net/) informed the visual restraint: text first, generous space, modest portrait, inline links, and almost no interface decoration. [Jaehoon Hahm’s homepage and CV](https://jaehoon-hahm.github.io/) informed the academic organization: identity and interests first, dated education and research, genuine publications, and concise teaching and skills. No reference prose, source code, or assets were copied.
+[Jason Wei](https://www.jasonwei.net/) is the primary visual reference for the website: a continuous 620 px desktop reading column, a modest portrait to its left, native serif type, short paragraphs, slash-separated inline links, and a compact year/title publication list. The homepage has one name heading and no top navigation; detailed education and honors belong in the CV. Mobile uses a single column. No external fonts or browser JavaScript are needed.
+
+[Jaehoon Hahm’s CV](https://jaehoon-hahm.github.io/Jaehoon_Hahm_CV.pdf) is the primary visual reference for the CV: large serif name, italic update date at top right, labelled horizontal contacts, muted green small-cap labels in an 86 pt left column, and a wide right content column. Institutions are blue links; degree/role lines and flush-right dates are italic. Publications put the bold title before authors and venue. Latin Modern at 11 pt keeps the two-page document readable and Overleaf compatible. Entries paginate as complete rows; avoid shrinking type or inserting blank space to force a page count. No reference prose, source code, or assets were copied.
 
 Keep the page readable and quiet. Do not add cards, decorative effects, badges, empty sections, or a portfolio-style hero.
 
@@ -72,7 +74,7 @@ draft: true
 Write the actual note here.
 ```
 
-Review the content, then change `draft` to `false`. The homepage automatically gains a Writing section and navigation link, and the note appears at `/writing/descriptive-slug/`. No empty writing index is published. For math rendering, add a focused Markdown integration only when an actual note needs it.
+Review the content, then change `draft` to `false`. The homepage automatically gains a Writing section and inline link, and the note appears at `/writing/descriptive-slug/`. No empty writing index is published. For math rendering, add a focused Markdown integration only when an actual note needs it.
 
 ## Update the CV
 
@@ -104,3 +106,5 @@ git worktree add ../kl543-old-site refs/tags/archive/pre-rebuild-20261001
 ```
 
 To roll back a published change, use a normal revert or a new restoration commit and push; do not force-push.
+
+The first Astro rebuild is also preserved at `checkpoint/v1-before-jason-jaehoon-polish-20261001` (commit `4ed546b`). The older archive branch and tag remain unchanged.

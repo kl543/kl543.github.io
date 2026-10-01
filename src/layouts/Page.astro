@@ -6,8 +6,10 @@ interface Props {
   title?: string;
   description?: string;
   hasWriting?: boolean;
+  home?: boolean;
 }
-const { title = `${profile.name} — Physics & Scientific Machine Learning`, description = profile.description, hasWriting = false } = Astro.props;
+const { title = `${profile.name} — Physics & Scientific Machine Learning`, description = profile.description, hasWriting = false, home = false } = Astro.props;
+const updated = new Intl.DateTimeFormat('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${profile.updated}T00:00:00Z`));
 const canonical = new URL(Astro.url.pathname, profile.website);
 ---
 <!doctype html>
@@ -29,20 +31,19 @@ const canonical = new URL(Astro.url.pathname, profile.website);
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="page">
+    <div class:list={['page', { home }]}>
       <header class="site-header">
-        <a class="site-name" href="/">{profile.name}</a>
-        <nav aria-label="Main navigation">
+        {home ? <h1 id="name" class="site-name">{profile.name}</h1> : <a class="site-name" href="/">{profile.name}</a>}
+        {!home && <nav aria-label="Main navigation">
           <a href="/#about">About</a>
           <a href="/#research">Research</a>
           {hasWriting && <a href="/#writing">Writing</a>}
           <a href={profile.cvUrl} aria-label="Curriculum vitae (PDF)">CV</a>
-        </nav>
+        </nav>}
       </header>
       <main id="main"><slot /></main>
       <footer class="site-footer">
-        <span>{profile.name} · University of Illinois Urbana-Champaign</span>
-        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <span>Updated {updated}</span>
       </footer>
     </div>
   </body>

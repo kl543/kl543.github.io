@@ -11,25 +11,25 @@
   "cvUrl": "/cv/Kaiming_Liu_CV.pdf",
   "description": "Kaiming Liu is a Physics PhD student at UIUC studying scientific machine learning, inverse problems, and simulation-to-experiment robustness.",
   "bio": [
-    "My research focuses on scientific machine learning and inverse problems: inferring physical models from measurements, representing uncertainty, and checking inferred parameters against the underlying physics.",
-    "Before moving to computational research, I studied thin-film materials using molecular beam epitaxy and scanning tunneling microscopy. That experimental background shapes my interest in methods that remain useful when simulations meet noisy, imperfect measurements."
+    "I work on scientific machine learning and inverse problems: inferring physical models from measurements and understanding uncertainty in those models.",
+    "Previously, I studied thin-film materials with molecular beam epitaxy and scanning tunneling microscopy in Vidya Madhavan’s group. That experimental background motivates my interest in connecting simulations to real measurements."
   ],
   "research": [
     {
       "title": "Probabilistic inference for physical models",
-      "text": "I study crystal electric field (CEF) inverse problems, where different model parameters can explain similar observations. My current work explores multimodal parameter inference and physics-based forward reconstruction to assess which solutions are consistent with the measurements."
+      "text": "My current work explores probabilistic, multimodal inference for crystal electric field inverse problems. I use physics-based forward reconstruction to assess parameters that can explain the same measurements."
     },
     {
       "title": "From simulation to experiment",
-      "text": "I investigate how inference methods trained on simulated data respond to experimental noise and distribution shift. The aim is to understand when an inferred model can be trusted, with applications to magnetic and scattering inverse problems."
+      "text": "I study how experimental noise and distribution shift affect inference trained on simulations, particularly in magnetic and scattering inverse problems."
     },
     {
       "title": "Computational many-body physics",
-      "text": "My computational background also includes neural-network backflow wavefunctions and variational Monte Carlo for strongly correlated fermions, with an emphasis on numerical implementation, sampling, and reproducible computation."
+      "text": "I also work on neural-network backflow wavefunctions and variational Monte Carlo for strongly correlated fermions, including numerical implementation and parallel sampling."
     }
   ],
   "background": "In Vidya Madhavan’s group at UIUC, I grew thin-film heterostructures with MBE, used STM/STS in ultrahigh vacuum, and developed temperature-control and data-analysis tools. Earlier research included Rydberg-atom simulations at Xi’an Jiaotong University and STM research in Michael F. Crommie’s group at UC Berkeley.",
-  "interests": "Scientific machine learning; inverse problems; probabilistic and multimodal inference; physics-based forward validation; simulation-to-experiment transfer; computational condensed matter physics.",
+  "interests": "Scientific machine learning; inverse problems; probabilistic inference; simulation-to-experiment transfer; computational condensed matter physics.",
   "education": [
     {
       "institution": "University of Illinois Urbana-Champaign",
@@ -37,14 +37,16 @@
       "dates": "Aug 2023–present",
       "shortDates": "2023–present",
       "note": "Advisor: Bryan K. Clark",
-      "homepage": true
+      "homepage": true,
+      "url": "https://illinois.edu/"
     },
     {
       "institution": "Xi’an Jiaotong University",
       "degree": "B.S. in Physics (Honors)",
       "dates": "Sep 2019–Jul 2023",
       "shortDates": "2019–2023",
-      "homepage": true
+      "homepage": true,
+      "url": "https://en.xjtu.edu.cn/"
     },
     {
       "institution": "University of California, Berkeley",
@@ -52,14 +54,16 @@
       "dates": "Aug–Dec 2021",
       "shortDates": "2021",
       "note": "Non-degree visiting program",
-      "homepage": false
+      "homepage": false,
+      "url": "https://www.berkeley.edu/"
     },
     {
       "institution": "Xi’an Jiaotong University",
       "degree": "Special Class for the Gifted Young",
       "dates": "Sep 2017–Jul 2019",
       "shortDates": "2017–2019",
-      "homepage": false
+      "homepage": false,
+      "url": "https://en.xjtu.edu.cn/"
     }
   ],
   "experience": [
@@ -68,21 +72,22 @@
       "role": "Graduate research, Bryan K. Clark group",
       "dates": "Nov 2025–present",
       "bullets": [
-        "Develop probabilistic approaches to crystal electric field inverse problems, including multimodal parameter inference and reconstruction of observables with physics-based forward models.",
-        "Study the sensitivity of scientific inference to experimental noise and simulation-to-experiment distribution shift, with applications to magnetic and scattering models.",
-        "Implemented neural-network backflow wavefunctions for strongly correlated fermionic systems and ran variational Monte Carlo simulations with parallel sampling on computing clusters.",
-        "Profiled sampling, local-energy evaluation, and optimization stages; refactored sampling routines to reuse wavefunction evaluations."
-      ]
+        "Develop probabilistic and multimodal inference for crystal electric field inverse problems, with physics-based forward reconstruction of observables.",
+        "Study robustness to experimental noise and simulation-to-experiment distribution shift in magnetic and scattering inverse problems.",
+        "Implemented neural-network backflow wavefunctions and variational Monte Carlo for correlated fermions, with parallel cluster sampling and reuse of wavefunction evaluations."
+      ],
+      "url": "https://illinois.edu/"
     },
     {
       "institution": "University of Illinois Urbana-Champaign",
       "role": "Research assistant, Vidya Madhavan group",
       "dates": "Aug 2023–Oct 2025",
       "bullets": [
-        "Grew thin-film heterostructures by molecular beam epitaxy and characterized materials using STM/STS in ultrahigh-vacuum systems.",
-        "Built an automated MBE temperature-control program with feedback loops, measurement logging, and alerts to support repeatable growth protocols.",
-        "Developed Python and MATLAB analysis routines for STM/STS data, including constant-energy contour extraction and joint-density-of-states calculations for quasiparticle-interference studies."
-      ]
+        "Grew thin-film heterostructures by molecular beam epitaxy and characterized materials with STM/STS in ultrahigh vacuum.",
+        "Automated MBE temperature control with feedback, measurement logging, and alerts for repeatable growth protocols.",
+        "Developed Python and MATLAB STM/STS analysis, including constant-energy contours and joint-density-of-states calculations for quasiparticle interference."
+      ],
+      "url": "https://illinois.edu/"
     },
     {
       "institution": "Xi’an Jiaotong University",
@@ -91,7 +96,8 @@
       "bullets": [
         "Simulated Rydberg-atom dynamics and photon-mediated interactions with MATLAB and Python to study quantum nonlinear optics.",
         "Built a discrete-time lattice simulation to examine two-qubit phase-flip dynamics and explore many-body regimes."
-      ]
+      ],
+      "url": "https://en.xjtu.edu.cn/"
     },
     {
       "institution": "University of California, Berkeley",
@@ -99,7 +105,8 @@
       "dates": "Oct–Dec 2021",
       "bullets": [
         "Assisted with synthesis and STM characterization of graphene nanoribbons containing five-membered rings, supporting studies of their electronic states."
-      ]
+      ],
+      "url": "https://www.berkeley.edu/"
     }
   ],
   "teaching": [
@@ -107,16 +114,36 @@
       "institution": "University of Illinois Urbana-Champaign",
       "role": "Teaching assistant, PHYS 102",
       "dates": "Aug–Dec 2023",
-      "text": "Led discussion and laboratory sections, held office hours, and provided feedback on assignments in electromagnetism and modern physics."
+      "text": "Led discussion and laboratory sections, held office hours, and provided feedback on assignments in electromagnetism and modern physics.",
+      "url": "https://illinois.edu/"
     }
   ],
   "honors": [
-    { "name": "China National Scholarship", "institution": "Xi’an Jiaotong University", "year": "2021", "homepage": true },
-    { "name": "Mathematical Contest in Modeling, Meritorious Winner", "institution": "COMAP", "year": "2021", "homepage": false }
+    {
+      "name": "China National Scholarship",
+      "institution": "Xi’an Jiaotong University",
+      "year": "2021",
+      "homepage": true
+    },
+    {
+      "name": "Mathematical Contest in Modeling, Meritorious Winner",
+      "institution": "COMAP",
+      "year": "2021",
+      "homepage": false
+    }
   ],
   "skills": [
-    { "category": "Programming and computing", "items": "Python, NumPy, SciPy, JAX, MATLAB; Git; Linux/bash; parallel cluster computation." },
-    { "category": "Scientific methods", "items": "Probabilistic inference, Monte Carlo (MCMC/VMC), numerical optimization, forward-model validation, runtime profiling." },
-    { "category": "Experiment", "items": "Molecular beam epitaxy, STM/STS, ultrahigh-vacuum systems, feedback control, scientific data analysis." }
+    {
+      "category": "Programming and computing",
+      "items": "Python, NumPy, SciPy, JAX, MATLAB; Git; Linux/bash; parallel cluster computation."
+    },
+    {
+      "category": "Scientific methods",
+      "items": "Probabilistic inference, Monte Carlo (MCMC/VMC), numerical optimization, forward-model validation, runtime profiling."
+    },
+    {
+      "category": "Experiment",
+      "items": "Molecular beam epitaxy, STM/STS, ultrahigh-vacuum systems, feedback control, scientific data analysis."
+    }
   ]
 }

@@ -2,14 +2,14 @@
 % Standalone, Overleaf-compatible. Upload this file; compile with pdfLaTeX.
 % Edit canonical data and regenerate instead of editing this generated file.
 \documentclass[11pt,letterpaper]{article}
-\usepackage[margin=0.72in]{geometry}
+\usepackage[left=0.80in,right=0.72in,top=0.72in,bottom=0.70in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{microtype}
 \usepackage{tabularx}
+\usepackage{longtable}
 \usepackage{enumitem}
-\usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
 \usepackage{hyperref}
@@ -17,97 +17,88 @@
   \input{glyphtounicode}
   \pdfgentounicode=1
 \fi
-\definecolor{linkblue}{HTML}{244E7A}
+\definecolor{linkblue}{HTML}{315A88}
+\definecolor{sectiongreen}{HTML}{375D43}
+\definecolor{quietgray}{HTML}{666666}
 \hypersetup{colorlinks=true,urlcolor=linkblue,linkcolor=linkblue,
   pdftitle={Kaiming Liu -- Curriculum Vitae},pdfauthor={Kaiming Liu}}
 \urlstyle{same}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{3pt}
+\setlength{\parskip}{1.5pt}
 \setlength{\emergencystretch}{2em}
-\renewcommand{\baselinestretch}{1.03}
-\titleformat{\section}{\large\bfseries}{}{0pt}{}
-\titlespacing*{\section}{0pt}{13pt}{6pt}
-\setlist[itemize]{leftmargin=15pt,itemsep=3pt,topsep=4pt,parsep=0pt}
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\setlength{\tabcolsep}{0pt}
+\setlist[itemize]{leftmargin=12pt,label=\textbullet,itemsep=2pt,topsep=3pt,parsep=0pt,partopsep=0pt}
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
-\fancyfoot[L]{\footnotesize Kaiming Liu \quad | \quad Updated October 1, 2026}
-\fancyfoot[R]{\footnotesize \thepage}
-\setlength{\footskip}{24pt}
+\fancyfoot[R]{\small\color{quietgray}\thepage}
+\setlength{\footskip}{23pt}
+\newcommand{\datedline}[2]{%
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xr@{}}#1&#2\end{tabularx}\par\nobreak}
 \newcommand{\entry}[3]{%
-  \noindent\begin{tabularx}{\linewidth}{@{}Xr@{}}\textbf{#1}&{\small #3}\end{tabularx}\par\nobreak
-  {\itshape #2}\par\nobreak}
+  #1\par\nobreak
+  \datedline{\textit{#2}}{\textit{#3}}}
+\newcommand{\cvrow}[3]{%
+  {\raggedright\small\color{sectiongreen}\textsc{#1}\par}&%
+  \begin{minipage}[t]{\linewidth}\raggedright #2\end{minipage}\\\noalign{\vskip #3pt}}
 \begin{document}
-{\LARGE Kaiming Liu}\par
-Physics PhD student, University of Illinois Urbana-Champaign\par
-\href{mailto:kl54@illinois.edu}{kl54@illinois.edu} \enspace $\cdot$ \enspace
-\href{https://kl543.github.io/}{kl543.github.io} \enspace $\cdot$ \enspace
-\href{https://github.com/kl543}{GitHub} \enspace $\cdot$ \enspace
-\href{https://www.linkedin.com/in/kaiming-l-9a166526a/}{LinkedIn}
+\noindent{\fontsize{28}{32}\selectfont\textsc{Kaiming Liu}}
+\hfill{\small\itshape Updated: October 1, 2026}\par
+\vspace{7pt}
+{\small
+\textbf{Email:} \href{mailto:kl54@illinois.edu}{kl54@illinois.edu}
+\hfill\textbf{GitHub:} \href{https://github.com/kl543}{github.com/kl543}
+\hfill\textbf{Homepage:} \href{https://kl543.github.io/}{kl543.github.io}
+\hfill \href{https://www.linkedin.com/in/kaiming-l-9a166526a/}{LinkedIn}
+}\par
+\vspace{18pt}
 
-\section*{Research Interests}
-Scientific machine learning; inverse problems; probabilistic and multimodal inference; physics-based forward validation; simulation-to-experiment transfer; computational condensed matter physics.
-
-\section*{Education}
-\entry{University of Illinois Urbana-Champaign}{Ph.D. in Physics, in progress}{Aug 2023--present}
-Advisor: Bryan K. Clark\par
-\vspace{4pt}
-\entry{Xi'an Jiaotong University}{B.S. in Physics (Honors)}{Sep 2019--Jul 2023}
-
-\vspace{4pt}
-\entry{University of California, Berkeley}{Berkeley Physics International Education (BPIE) Program}{Aug--Dec 2021}
-Non-degree visiting program\par
-\vspace{4pt}
-\entry{Xi'an Jiaotong University}{Special Class for the Gifted Young}{Sep 2017--Jul 2019}
-
-\vspace{4pt}
-
-\section*{Research Experience}
-\entry{University of Illinois Urbana-Champaign}{Graduate research, Bryan K. Clark group}{Nov 2025--present}
+% Each entry is an indivisible row; the table can break between entries.
+% The left label column remains aligned throughout both pages.
+\begin{longtable}{@{}p{86pt}@{\hspace{20pt}}p{\dimexpr\textwidth-106pt\relax}@{}}
+\cvrow{Research Interests}{Scientific machine learning; inverse problems; probabilistic inference; simulation-to-experiment transfer; computational condensed matter physics.}{15}
+\cvrow{Education}{\entry{\href{https://illinois.edu/}{University of Illinois Urbana-Champaign}}{Ph.D. in Physics, in progress}{Aug 2023--present}
+Advisor: Bryan K. Clark\par}{8}
+\cvrow{}{\entry{\href{https://en.xjtu.edu.cn/}{Xi'an Jiaotong University}}{B.S. in Physics (Honors)}{Sep 2019--Jul 2023}
+}{8}
+\cvrow{}{\entry{\href{https://www.berkeley.edu/}{University of California, Berkeley}}{Berkeley Physics International Education (BPIE) Program}{Aug--Dec 2021}
+Non-degree visiting program\par}{8}
+\cvrow{}{\entry{\href{https://en.xjtu.edu.cn/}{Xi'an Jiaotong University}}{Special Class for the Gifted Young}{Sep 2017--Jul 2019}
+}{15}
+\cvrow{Research Experience}{\entry{\href{https://illinois.edu/}{University of Illinois Urbana-Champaign}}{Graduate research, Bryan K. Clark group}{Nov 2025--present}
 \begin{itemize}
-  \item Develop probabilistic approaches to crystal electric field inverse problems, including multimodal parameter inference and reconstruction of observables with physics-based forward models.
-  \item Study the sensitivity of scientific inference to experimental noise and simulation-to-experiment distribution shift, with applications to magnetic and scattering models.
-  \item Implemented neural-network backflow wavefunctions for strongly correlated fermionic systems and ran variational Monte Carlo simulations with parallel sampling on computing clusters.
-  \item Profiled sampling, local-energy evaluation, and optimization stages; refactored sampling routines to reuse wavefunction evaluations.
-\end{itemize}
-\vspace{3pt}
-\entry{University of Illinois Urbana-Champaign}{Research assistant, Vidya Madhavan group}{Aug 2023--Oct 2025}
+  \item Develop probabilistic and multimodal inference for crystal electric field inverse problems, with physics-based forward reconstruction of observables.
+  \item Study robustness to experimental noise and simulation-to-experiment distribution shift in magnetic and scattering inverse problems.
+  \item Implemented neural-network backflow wavefunctions and variational Monte Carlo for correlated fermions, with parallel cluster sampling and reuse of wavefunction evaluations.
+\end{itemize}}{8}
+\cvrow{}{\entry{\href{https://illinois.edu/}{University of Illinois Urbana-Champaign}}{Research assistant, Vidya Madhavan group}{Aug 2023--Oct 2025}
 \begin{itemize}
-  \item Grew thin-film heterostructures by molecular beam epitaxy and characterized materials using STM/STS in ultrahigh-vacuum systems.
-  \item Built an automated MBE temperature-control program with feedback loops, measurement logging, and alerts to support repeatable growth protocols.
-  \item Developed Python and MATLAB analysis routines for STM/STS data, including constant-energy contour extraction and joint-density-of-states calculations for quasiparticle-interference studies.
-\end{itemize}
-\vspace{3pt}
-\entry{Xi'an Jiaotong University}{Research assistant, Yongchang Zhang group}{Mar 2022--Jul 2023}
+  \item Grew thin-film heterostructures by molecular beam epitaxy and characterized materials with STM/STS in ultrahigh vacuum.
+  \item Automated MBE temperature control with feedback, measurement logging, and alerts for repeatable growth protocols.
+  \item Developed Python and MATLAB STM/STS analysis, including constant-energy contours and joint-density-of-states calculations for quasiparticle interference.
+\end{itemize}}{15}
+\cvrow{Publications}{\textbf{[P1] \href{https://doi.org/10.1073/pnas.2602117123}{\textcolor{black}{Evidence of intertwined pair density and charge density wave orders in UTe2}}}\par
+Zhen Zhu, Yudi Huang, Julian May-Mann, \textbf{Kaiming Liu}, Zheyu Wu, Shanta R. Saha, Johnpierre Paglione, Alexander G. Eaton, Andrej Cabala, Michal Vali\v{s}ka, Eduardo Fradkin, Vidya Madhavan.\par
+\textit{PNAS 123 (29), e2602117123 (2026)}.\quad \href{https://arxiv.org/abs/2603.08688}{arXiv}.\par}{15}
+
+\cvrow{Previous Research}{\entry{\href{https://en.xjtu.edu.cn/}{Xi'an Jiaotong University}}{Research assistant, Yongchang Zhang group}{Mar 2022--Jul 2023}
 \begin{itemize}
   \item Simulated Rydberg-atom dynamics and photon-mediated interactions with MATLAB and Python to study quantum nonlinear optics.
   \item Built a discrete-time lattice simulation to examine two-qubit phase-flip dynamics and explore many-body regimes.
-\end{itemize}
-\vspace{3pt}
-\entry{University of California, Berkeley}{Research assistant, Michael F. Crommie group}{Oct--Dec 2021}
+\end{itemize}}{8}
+\cvrow{}{\entry{\href{https://www.berkeley.edu/}{University of California, Berkeley}}{Research assistant, Michael F. Crommie group}{Oct--Dec 2021}
 \begin{itemize}
   \item Assisted with synthesis and STM characterization of graphene nanoribbons containing five-membered rings, supporting studies of their electronic states.
-\end{itemize}
-\vspace{3pt}
-
-\section*{Publications}
-Zhen Zhu, Yudi Huang, Julian May-Mann, \textbf{Kaiming Liu}, Zheyu Wu, Shanta R. Saha, Johnpierre Paglione, Alexander G. Eaton, Andrej Cabala, Michal Vali\v{s}ka, Eduardo Fradkin, Vidya Madhavan.\par
-\href{https://doi.org/10.1073/pnas.2602117123}{Evidence of intertwined pair density and charge density wave orders in UTe2}. \textit{PNAS} 123 (29), e2602117123 (2026). \href{https://arxiv.org/abs/2603.08688}{arXiv version}.\par
-
-
-
-\section*{Teaching}
-\entry{University of Illinois Urbana-Champaign}{Teaching assistant, PHYS 102}{Aug--Dec 2023}
-Led discussion and laboratory sections, held office hours, and provided feedback on assignments in electromagnetism and modern physics.\par
-
-\section*{Selected Honors}
-\textbf{China National Scholarship} \hfill 2021\\
-Xi'an Jiaotong University\par
-\textbf{Mathematical Contest in Modeling, Meritorious Winner} \hfill 2021\\
-COMAP\par
-
-\section*{Technical Skills}
-\textbf{Programming and computing:} Python, NumPy, SciPy, JAX, MATLAB; Git; Linux/bash; parallel cluster computation.\par
-\textbf{Scientific methods:} Probabilistic inference, Monte Carlo (MCMC/VMC), numerical optimization, forward-model validation, runtime profiling.\par
-\textbf{Experiment:} Molecular beam epitaxy, STM/STS, ultrahigh-vacuum systems, feedback control, scientific data analysis.\par
+\end{itemize}}{15}
+\cvrow{Teaching}{\entry{\href{https://illinois.edu/}{University of Illinois Urbana-Champaign}}{Teaching assistant, PHYS 102}{Aug--Dec 2023}}{15}
+\cvrow{Selected Honors}{\datedline{China National Scholarship}{2021}
+Xi'an Jiaotong University\par}{8}
+\cvrow{}{\datedline{Mathematical Contest in Modeling, Meritorious Winner}{2021}
+COMAP\par}{15}
+\cvrow{Technical Skills}{\textit{Programming and computing:} Python, NumPy, SciPy, JAX, MATLAB; Git; Linux/bash; parallel cluster computation.\par
+\textit{Scientific methods:} Probabilistic inference, Monte Carlo (MCMC/VMC), numerical optimization, forward-model validation, runtime profiling.\par
+\textit{Experiment:} Molecular beam epitaxy, STM/STS, ultrahigh-vacuum systems, feedback control, scientific data analysis.\par}{15}
+\end{longtable}
 \end{document}
