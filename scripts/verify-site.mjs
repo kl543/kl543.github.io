@@ -39,6 +39,8 @@ let homepageSchema;
 for (const file of htmlFiles('dist')) {
   const source = readFileSync(file, 'utf8');
   const relative = file.slice('dist/'.length);
+  // Google's exact ownership file is plain text, not a canonical content page.
+  if (/^google[a-zA-Z0-9]+\.html$/.test(relative) && source.trim() === `google-site-verification: ${relative}`) continue;
   const pathname = relative === 'index.html' ? '/' : relative.endsWith('/index.html') ? `/${relative.slice(0, -10)}` : `/${relative}`;
   const url = new URL(pathname, profile.website);
   const scripts = [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
