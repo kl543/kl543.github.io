@@ -3,18 +3,19 @@
   "title": "Physics PhD student",
   "institution": "University of Illinois Urbana-Champaign",
   "advisor": "Bryan K. Clark",
-  "updated": "2026-10-01",
+  "updated": "2026-10-02",
   "email": "kl54@illinois.edu",
   "website": "https://kl543.github.io/",
   "github": "https://github.com/kl543",
   "linkedin": "https://www.linkedin.com/in/kaiming-l-9a166526a/",
   "cvUrl": "/cv/Kaiming_Liu_CV.pdf",
-  "description": "Kaiming Liu is a Physics PhD student at UIUC working on scientific machine learning, inverse problems, probabilistic inference, and computational physics.",
+  "description": "Kaiming Liu studies probabilistic machine learning, multimodal inference, and robustness in scientific inverse problems. Physics PhD student at UIUC.",
   "bio": [
-    "My research uses scientific machine learning for inverse problems, focusing on probabilistic inference and simulation-to-experiment robustness. I previously worked in experimental condensed matter physics."
+    "I study probabilistic machine learning, with a focus on multimodal inference and robustness under distribution shift.",
+    "I use scientific inverse problems to study multiple solutions and the shift from simulations to real measurements."
   ],
-  "background": "Before moving to computation, I worked in Vidya Madhavan’s group at UIUC, growing thin films with molecular beam epitaxy (MBE) and studying electronic structure with STM/STS in ultrahigh vacuum (UHV). I also developed experimental automation and Python/MATLAB analysis of quasiparticle-interference data.",
-  "interests": "Scientific machine learning; inverse problems; probabilistic inference; simulation-to-experiment transfer; computational condensed matter physics.",
+  "background": "My experimental background informs how I approach the gap between simulations and measurements. In Vidya Madhavan’s group at UIUC, I grew thin films with molecular beam epitaxy (MBE) and studied electronic structure with STM/STS in ultrahigh vacuum (UHV). I developed experimental automation and Python/MATLAB analysis of quasiparticle-interference data.",
+  "interests": "Probabilistic machine learning; multimodal conditional inference; robustness under distribution shift; simulation-to-experiment transfer; neural many-body models.",
   "education": [
     {
       "institution": "University of Illinois Urbana-Champaign",
@@ -60,24 +61,25 @@
       "url": "https://illinois.edu/",
       "projects": [
         {
-          "title": "Crystal-field inverse modeling",
+          "title": "Multimodal inference / crystal-field parameters",
           "bullets": [
-            "Represent non-unique crystal-field solutions from susceptibility with residual-MLP conditional Gaussian mixture models.",
-            "Validate candidates by reconstructing susceptibility; test training noise on synthetic curves and experimental measurements."
+            "Built residual-MLP conditional Gaussian mixtures to represent multiple plausible crystal-field solutions from susceptibility.",
+            "Validated candidates through forward reconstruction; studied noise, scale, and background shifts and experimental measurements.",
+            "Evaluated conditional Gaussian mixtures and conditional RealNVP normalizing flows in a pilot density-model comparison."
           ]
         },
         {
-          "title": "Magnetic-scattering inverse modeling",
+          "title": "Robust inverse prediction / neutron scattering",
           "bullets": [
-            "Infer exchange parameters from powder-averaged neutron-scattering maps using MLP and ResNet conditional Gaussian mixtures.",
-            "Use exact Sunny forward checks and classical fits as references; test sensitivity to noise, intensity scale, and background offsets."
+            "Trained MLP and ResNet conditional Gaussian mixtures for high-dimensional inverse prediction of exchange parameters from neutron maps.",
+            "Used exact Sunny forward evaluation and classical fit references; tested noise, intensity-scale, and background shifts."
           ]
         },
         {
-          "title": "Neural-network backflow / variational Monte Carlo",
+          "title": "Neural-network backflow / JAX and Monte Carlo",
           "bullets": [
-            "Implement JAX neural-network backflow wavefunctions and variational Monte Carlo for lattice Hubbard models.",
-            "Profile parallel GPU sampling, local-energy evaluation, and gradient synchronization; check chunked evaluation against the original computation."
+            "Implemented neural-network backflow and variational Monte Carlo in JAX for Hubbard models, with GPU/multi-GPU sampling.",
+            "Profiled local-energy evaluation and gradient synchronization; verified chunked evaluation and global reductions against reference computations."
           ]
         }
       ]
@@ -87,8 +89,8 @@
       "role": "Research assistant, Vidya Madhavan group",
       "dates": "Aug 2023–Oct 2025",
       "bullets": [
-        "Grew thin-film heterostructures with MBE and characterized electronic structure using STM/STS in ultrahigh vacuum.",
-        "Automated growth temperature control and built Python/MATLAB analysis of STM/STS quasiparticle-interference data."
+        "Grew thin-film heterostructures with MBE and characterized electronic structure with STM/STS in ultrahigh vacuum.",
+        "Automated growth temperature control and built Python/MATLAB tools for quasiparticle-interference analysis."
       ],
       "url": "https://illinois.edu/"
     },
@@ -143,17 +145,21 @@
   ],
   "skills": [
     {
-      "category": "ML / scientific computing",
-      "items": "Python (PyTorch, JAX, NumPy, SciPy), MATLAB; conditional mixture models; Git, Linux."
+      "category": "ML / modeling",
+      "items": "PyTorch, JAX; conditional mixtures, residual networks, probabilistic inference."
     },
     {
-      "category": "Computational physics / HPC",
-      "items": "MCMC, variational Monte Carlo, numerical optimization; GPU/cluster computation and runtime profiling."
+      "category": "Research engineering",
+      "items": "Python, NumPy, SciPy, Git, Linux; GPU/multi-GPU and cluster computation, runtime profiling."
     },
     {
-      "category": "Experiment",
-      "items": "MBE, STM/STS, ultrahigh vacuum, feedback control, experimental automation and data analysis."
+      "category": "Numerical / scientific methods",
+      "items": "MCMC, VMC, numerical optimization; forward-model evaluation and simulation-to-experiment robustness."
+    },
+    {
+      "category": "Experimental physics",
+      "items": "MBE, STM/STS, UHV; feedback control, automation, MATLAB and data analysis."
     }
   ],
-  "researchProfile": "Scientific machine learning for magnetic inverse problems: probabilistic models, physical forward validation, and simulation-to-experiment robustness. Background in experimental condensed matter and computational many-body physics."
+  "researchProfile": "Probabilistic machine learning for multimodal conditional inference and robustness under distribution shift, tested on scientific inverse problems."
 }

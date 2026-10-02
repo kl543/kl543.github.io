@@ -8,7 +8,7 @@ interface Props {
   description?: string;
   home?: boolean;
 }
-const { title = `${profile.name} — Physics & Scientific Machine Learning, UIUC`, description = profile.description, home = false } = Astro.props;
+const { title = `${profile.name} — Machine Learning Research, UIUC`, description = profile.description, home = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/^\/404\/?$/, '/404.html'), profile.website);
 ---
 <!doctype html>

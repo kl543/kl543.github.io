@@ -50,7 +50,7 @@
 \begin{document}
 \color{bodyink}
 \noindent{\fontsize{28}{32}\selectfont Kaiming Liu}
-\hfill{\footnotesize\sffamily\color{quietgray}Updated: October 1, 2026}\par
+\hfill{\footnotesize\sffamily\color{quietgray}Updated: October 2, 2026}\par
 \vspace{7pt}
 {\small\sffamily
 \textbf{Email:} \href{mailto:kl54@illinois.edu}{kl54@illinois.edu}
@@ -64,7 +64,7 @@
 % Each entry is an indivisible row; the table can break between entries.
 % The left label column remains aligned throughout both pages.
 \begin{longtable}{@{}p{80pt}@{\hspace{14pt}}p{\dimexpr\textwidth-94pt\relax}@{}}
-\cvrow{Research Profile}{Scientific machine learning for magnetic inverse problems: probabilistic models, physical forward validation, and simulation-to-experiment robustness. Background in experimental condensed matter and computational many-body physics.}{18}
+\cvrow{Research Profile}{Probabilistic machine learning for multimodal conditional inference and robustness under distribution shift, tested on scientific inverse problems.}{18}
 \cvrow{Education}{\href{https://illinois.edu/}{\textcolor{accent}{\textbf{University of Illinois Urbana-Champaign}}}\par
 \datedline{\textit{Ph.D. in Physics, in progress}}{Aug 2023--present}
 Advisor: Bryan K. Clark\par}{10}
@@ -78,22 +78,23 @@ Advisor: Bryan K. Clark\par}{10}
 }{18}
 \cvrow{Current Research}{\entry{\href{https://illinois.edu/}{\textcolor{accent}{\textbf{University of Illinois Urbana-Champaign}}}}{Graduate researcher, Bryan K. Clark group}{Nov 2025--present}
 \vspace{8pt}
-\textbf{Crystal-field inverse modeling}\par
+\textbf{Multimodal inference / crystal-field parameters}\par
 \begin{itemize}
-  \item Represent non-unique crystal-field solutions from susceptibility with residual-MLP conditional Gaussian mixture models.
-  \item Validate candidates by reconstructing susceptibility; test training noise on synthetic curves and experimental measurements.
+  \item Built residual-MLP conditional Gaussian mixtures to represent multiple plausible crystal-field solutions from susceptibility.
+  \item Validated candidates through forward reconstruction; studied noise, scale, and background shifts and experimental measurements.
+  \item Evaluated conditional Gaussian mixtures and conditional RealNVP normalizing flows in a pilot density-model comparison.
 \end{itemize}
 \vspace{8pt}
-\textbf{Magnetic-scattering inverse modeling}\par
+\textbf{Robust inverse prediction / neutron scattering}\par
 \begin{itemize}
-  \item Infer exchange parameters from powder-averaged neutron-scattering maps using MLP and ResNet conditional Gaussian mixtures.
-  \item Use exact Sunny forward checks and classical fits as references; test sensitivity to noise, intensity scale, and background offsets.
+  \item Trained MLP and ResNet conditional Gaussian mixtures for high-dimensional inverse prediction of exchange parameters from neutron maps.
+  \item Used exact Sunny forward evaluation and classical fit references; tested noise, intensity-scale, and background shifts.
 \end{itemize}
 \vspace{8pt}
-\textbf{Neural-network backflow / variational Monte Carlo}\par
+\textbf{Neural-network backflow / JAX and Monte Carlo}\par
 \begin{itemize}
-  \item Implement JAX neural-network backflow wavefunctions and variational Monte Carlo for lattice Hubbard models.
-  \item Profile parallel GPU sampling, local-energy evaluation, and gradient synchronization; check chunked evaluation against the original computation.
+  \item Implemented neural-network backflow and variational Monte Carlo in JAX for Hubbard models, with GPU/multi-GPU sampling.
+  \item Profiled local-energy evaluation and gradient synchronization; verified chunked evaluation and global reductions against reference computations.
 \end{itemize}}{18}
 \end{longtable}
 \newpage
@@ -104,8 +105,8 @@ Zhen Zhu, Yudi Huang, Julian May-Mann, \textbf{Kaiming Liu}, Zheyu Wu, Shanta R.
 
 \cvrow{Prior Research}{\entry{\href{https://illinois.edu/}{\textcolor{accent}{\textbf{University of Illinois Urbana-Champaign}}}}{Research assistant, Vidya Madhavan group}{Aug 2023--Oct 2025}
 \begin{itemize}
-  \item Grew thin-film heterostructures with MBE and characterized electronic structure using STM/STS in ultrahigh vacuum.
-  \item Automated growth temperature control and built Python/MATLAB analysis of STM/STS quasiparticle-interference data.
+  \item Grew thin-film heterostructures with MBE and characterized electronic structure with STM/STS in ultrahigh vacuum.
+  \item Automated growth temperature control and built Python/MATLAB tools for quasiparticle-interference analysis.
 \end{itemize}}{10}
 \cvrow{}{\entry{\href{https://en.xjtu.edu.cn/}{\textcolor{accent}{\textbf{Xi'an Jiaotong University}}}}{Research assistant, Yongchang Zhang group}{Mar 2022--Jul 2023}
 \begin{itemize}
@@ -123,8 +124,9 @@ Zhen Zhu, Yudi Huang, Julian May-Mann, \textbf{Kaiming Liu}, Zheyu Wu, Shanta R.
 Xi'an Jiaotong University\par}{10}
 \cvrow{}{\datedline{Mathematical Contest in Modeling, Meritorious Winner}{2021}
 COMAP\par}{18}
-\cvrow{Technical Skills}{\textit{ML / scientific computing:} Python (PyTorch, JAX, NumPy, SciPy), MATLAB; conditional mixture models; Git, Linux.\par
-\textit{Computational physics / HPC:} MCMC, variational Monte Carlo, numerical optimization; GPU/cluster computation and runtime profiling.\par
-\textit{Experiment:} MBE, STM/STS, ultrahigh vacuum, feedback control, experimental automation and data analysis.\par}{18}
+\cvrow{Technical Skills}{\textit{ML / modeling:} PyTorch, JAX; conditional mixtures, residual networks, probabilistic inference.\par
+\textit{Research engineering:} Python, NumPy, SciPy, Git, Linux; GPU/multi-GPU and cluster computation, runtime profiling.\par
+\textit{Numerical / scientific methods:} MCMC, VMC, numerical optimization; forward-model evaluation and simulation-to-experiment robustness.\par
+\textit{Experimental physics:} MBE, STM/STS, UHV; feedback control, automation, MATLAB and data analysis.\par}{18}
 \end{longtable}
 \end{document}

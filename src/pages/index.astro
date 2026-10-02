@@ -11,8 +11,8 @@ const scholar = 'scholar' in profile && typeof profile.scholar === 'string' ? pr
 <Page home>
   <section id="about" class="intro" aria-labelledby="name">
     <div class="intro-text">
-      <p>I am a {profile.title} in {profile.advisor}’s group at the <a href={profile.education[0].url}>{profile.institution}</a>.</p>
       {profile.bio.map(paragraph => <p>{paragraph}</p>)}
+      <p>I am a {profile.title} in {profile.advisor}’s group at the <a href={profile.education[0].url}>{profile.institution}</a>.</p>
       <ul class="contact-links" aria-label="Contact and professional links">
         <li><a href={`mailto:${profile.email}`}>Email</a></li>
         <li><a href={profile.cvUrl} aria-label="Curriculum vitae (PDF)">CV</a></li>

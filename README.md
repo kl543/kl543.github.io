@@ -2,6 +2,8 @@
 
 Source for [kl543.github.io](https://kl543.github.io/), a single-page researcher homepage built with Astro and plain CSS. Home contains the introduction, professional links, three research projects, publications, and background. No primary navbar, browser JavaScript, analytics, backend, or external font requests.
 
+The research introduction leads with probabilistic machine learning, multimodal conditional inference, and robustness. The Physics PhD identity and scientific applications provide the domain context. Public method claims are checked against project evidence.
+
 ## Local development
 
 Use Node 24 (or Node ≥22.12):
@@ -40,6 +42,8 @@ The original website is preserved on both the branch and annotated tag `archive/
 The pre-expansion version is preserved at `checkpoint/v3-before-multipage-cv-redesign-20261001` (`9b19150`). Earlier checkpoints remain unchanged.
 
 The deployed version before the single-page refactor is preserved at `checkpoint/v5-before-single-page-final-20261001` (`2dc64b1`). The two-page CV was retained without changes in this refactor.
+
+The deployed version before ML content positioning is preserved at `checkpoint/v6-before-ai-positioning-pass-20261002` (`42de57a`). This content pass retains the website CSS and CV visual design.
 
 See [SITE_MAINTENANCE.md](SITE_MAINTENANCE.md) for content updates, publication, writing and talk workflows, CV maintenance, and privacy rules.
 
