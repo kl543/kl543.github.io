@@ -4,7 +4,7 @@ import Page from '../layouts/Page.astro';
 import Publications from '../components/Publications.astro';
 import Talks from '../components/Talks.astro';
 import profile from '../data/profile.json';
-import talks from '../data/talks.json';
+import research from '../data/research.json';
 const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 <Page home hasWriting={writing.length > 0}>
@@ -14,26 +14,36 @@ const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort
       {profile.bio.map(paragraph => <p>{paragraph}</p>)}
       <ul class="contact-links" aria-label="Contact and professional links">
         <li><a href={`mailto:${profile.email}`}>Email</a></li>
-        <li><a href={profile.cvUrl} aria-label="Curriculum vitae (PDF)">CV</a></li>
         <li><a href={profile.github}>GitHub</a></li>
         <li><a href={profile.linkedin}>LinkedIn</a></li>
-        {writing.length > 0 && <li><a href="#writing">Writing</a></li>}
-        {talks.length > 0 && <li><a href="#talks">Talks</a></li>}
       </ul>
     </div>
     <img class="portrait" src="/images/kaiming-liu.jpg" alt="Portrait of Kaiming Liu" width="420" height="420" fetchpriority="high" decoding="async" />
   </section>
 
-  <section id="research" aria-labelledby="research-heading">
-    <h2 id="research-heading">Research</h2>
-    <div class="research-list">
-      {profile.research.map(topic => <p>{topic.text}</p>)}
-    </div>
+  <section class="current-work" aria-labelledby="current-work-heading">
+    <h2 id="current-work-heading">Current work</h2>
+    <p>{research.currentWork}</p>
+  </section>
+
+  <section id="research" class="selected-research" aria-labelledby="research-heading">
+    <h2 id="research-heading">Selected research</h2>
+    <ol class="project-list">
+      {research.projects.filter(project => project.selected).map((project, index) => (
+        <li>
+          <span class="project-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <div>
+            <h3><a href={`/research/#${project.id}`}>{project.title}</a></h3>
+            <p>{project.summary}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
   </section>
 
   <Publications />
 
-  <p id="education" class="background-note">Before UIUC, I studied in {profile.education[1].institution}’s Special Class for the Gifted Young and later completed a {profile.education[1].degree}. Further background is in my <a href={profile.cvUrl}>CV</a>.</p>
+  <p id="education" class="background-note">Before UIUC, I studied in {profile.education[1].institution}’s Special Class for the Gifted Young (2017–2019) and completed a {profile.education[1].degree} (2019–2023).</p>
 
   {writing.length > 0 && (
     <section id="writing" aria-labelledby="writing-heading">

@@ -1,0 +1,27 @@
+---
+interface Props {
+  id: string;
+  workflow: {
+    label: string;
+    steps: { title: string; detail: string }[];
+    caption: string;
+  };
+}
+const { id, workflow } = Astro.props;
+---
+<figure class="workflow" aria-label={workflow.label} aria-describedby={`${id}-caption`}>
+  <ol class="workflow-steps" aria-label="Workflow steps">
+    {workflow.steps.map((step, index) => (
+      <li>
+        <span class="step-title">{step.title}</span>
+        <span class="step-detail">{step.detail}</span>
+        {index < workflow.steps.length - 1 && (
+          <svg class="step-arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M3 12h17m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.25" />
+          </svg>
+        )}
+      </li>
+    ))}
+  </ol>
+  <figcaption id={`${id}-caption`}>{workflow.caption}</figcaption>
+</figure>

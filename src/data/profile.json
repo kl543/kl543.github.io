@@ -11,18 +11,7 @@
   "cvUrl": "/cv/Kaiming_Liu_CV.pdf",
   "description": "Kaiming Liu is a Physics PhD student at UIUC working on probabilistic inverse models, magnetic observables, and simulation-to-experiment robustness.",
   "bio": [
-    "I build probabilistic models for scientific inverse problems, with a focus on magnetic measurements and the gap between simulations and experiments.",
-    "Before moving to computation, I worked with molecular beam epitaxy and scanning tunneling microscopy in Vidya Madhavan’s group."
-  ],
-  "research": [
-    {
-      "title": "Probabilistic inverse modeling",
-      "text": "Magnetic measurements need not determine a unique physical model. I use conditional Gaussian mixture models to infer multiple crystal-field parameter candidates from susceptibility curves, then check them by reconstructing the observables with the forward physics."
-    },
-    {
-      "title": "From simulation to measurements",
-      "text": "I also study how noise, intensity scaling, and background offsets affect models trained on simulations. This includes susceptibility measurements and exchange-parameter inference from magnetic neutron-scattering maps; forward reconstruction provides a common check across both problems."
-    }
+    "I build probabilistic models for scientific inverse problems, with a focus on magnetic measurements and the gap between simulations and experiments."
   ],
   "background": "In Vidya Madhavan’s group at UIUC, I grew thin-film heterostructures with MBE, used STM/STS in ultrahigh vacuum, and developed temperature-control and data-analysis tools. Earlier research included Rydberg-atom simulations at Xi’an Jiaotong University and STM research in Michael F. Crommie’s group at UC Berkeley.",
   "interests": "Scientific machine learning; inverse problems; probabilistic inference; simulation-to-experiment transfer; computational condensed matter physics.",
@@ -73,8 +62,8 @@
         {
           "title": "Crystal-field inverse modeling",
           "bullets": [
-            "Infer multiple crystal-field candidates from susceptibility with a residual MLP and conditional Gaussian mixture models (cGMMs).",
-            "Check candidates with forward susceptibility simulation; test noise augmentation on held-out synthetic curves and experimental measurements."
+            "Represent non-unique crystal-field solutions from susceptibility with residual-MLP conditional Gaussian mixture models.",
+            "Validate candidates by reconstructing susceptibility; test training noise on synthetic curves and experimental measurements."
           ]
         },
         {

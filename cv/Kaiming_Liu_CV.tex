@@ -5,7 +5,8 @@
 \usepackage[left=0.72in,right=0.72in,top=0.68in,bottom=0.70in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+\usepackage{tgpagella}
+\usepackage[scale=0.94]{tgheros}
 \usepackage{microtype}
 \usepackage{tabularx}
 \usepackage{longtable}
@@ -17,105 +18,113 @@
   \input{glyphtounicode}
   \pdfgentounicode=1
 \fi
-\definecolor{accent}{HTML}{36566F}
+\definecolor{accent}{HTML}{244865}
+\definecolor{sectiontone}{HTML}{35584F}
+\definecolor{bodyink}{HTML}{292D30}
 \definecolor{quietgray}{HTML}{666666}
+\definecolor{rulegray}{HTML}{DCE1E4}
 \hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent,
   pdftitle={Kaiming Liu -- Curriculum Vitae},pdfauthor={Kaiming Liu}}
 \urlstyle{same}
+\linespread{1.04}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1.5pt}
 \setlength{\emergencystretch}{2em}
 \setlength{\LTpre}{0pt}
 \setlength{\LTpost}{0pt}
 \setlength{\tabcolsep}{0pt}
-\setlist[itemize]{leftmargin=12pt,label=\textbullet,itemsep=2pt,topsep=3pt,parsep=0pt,partopsep=0pt}
+\setlist[itemize]{leftmargin=12pt,label=\textbullet,itemsep=3pt,topsep=4pt,parsep=0pt,partopsep=0pt}
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \fancyfoot[R]{\small\color{quietgray}\thepage}
 \setlength{\footskip}{23pt}
 \newcommand{\datedline}[2]{%
-  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xr@{}}#1&#2\end{tabularx}\par\nobreak}
+  \begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}Xr@{}}#1&{\small\sffamily\color{quietgray}#2}\end{tabularx}\par\nobreak}
 \newcommand{\entry}[3]{%
   #1\par\nobreak
-  \datedline{\textit{#2}}{\textit{#3}}}
+  \datedline{\textit{#2}}{#3}}
 \newcommand{\cvrow}[3]{%
-  {\raggedright\small\sffamily\bfseries\color{accent}#1\par}&%
+  {\raggedright\small\sffamily\bfseries\color{sectiontone}#1\par}&%
   \begin{minipage}[t]{\linewidth}\raggedright #2\end{minipage}\\\noalign{\vskip #3pt}}
 \begin{document}
-\noindent{\fontsize{29}{33}\selectfont Kaiming Liu}
-\hfill{\small\itshape Updated: October 1, 2026}\par
+\color{bodyink}
+\noindent{\fontsize{28}{32}\selectfont Kaiming Liu}
+\hfill{\footnotesize\sffamily\color{quietgray}Updated: October 1, 2026}\par
 \vspace{7pt}
-{\small
+{\small\sffamily
 \textbf{Email:} \href{mailto:kl54@illinois.edu}{kl54@illinois.edu}
 \hfill\textbf{GitHub:} \href{https://github.com/kl543}{github.com/kl543}
 \hfill\textbf{Homepage:} \href{https://kl543.github.io/}{kl543.github.io}
 }\par
-\vspace{18pt}
+\vspace{12pt}
+{\color{rulegray}\hrule height 0.3pt}
+\vspace{14pt}
 
 % Each entry is an indivisible row; the table can break between entries.
 % The left label column remains aligned throughout both pages.
 \begin{longtable}{@{}p{80pt}@{\hspace{14pt}}p{\dimexpr\textwidth-94pt\relax}@{}}
-\cvrow{Research Profile}{Scientific machine learning for magnetic inverse problems: probabilistic models, physical forward validation, and simulation-to-experiment robustness. Background in experimental condensed matter and computational many-body physics.}{15}
-\cvrow{Education}{\href{https://illinois.edu/}{\textcolor{black}{\textbf{University of Illinois Urbana-Champaign}}}\par
-\datedline{\textit{Ph.D. in Physics, in progress}}{\textit{Aug 2023--present}}
-Advisor: Bryan K. Clark\par}{8}
-\cvrow{}{\href{https://en.xjtu.edu.cn/}{\textcolor{black}{\textbf{Xi'an Jiaotong University}}}\par
-\datedline{\textit{B.S. in Physics (Honors)}}{\textit{Sep 2019--Jul 2023}}
+\cvrow{Research Profile}{Scientific machine learning for magnetic inverse problems: probabilistic models, physical forward validation, and simulation-to-experiment robustness. Background in experimental condensed matter and computational many-body physics.}{18}
+\cvrow{Education}{\href{https://illinois.edu/}{\textcolor{accent}{\textbf{University of Illinois Urbana-Champaign}}}\par
+\datedline{\textit{Ph.D. in Physics, in progress}}{Aug 2023--present}
+Advisor: Bryan K. Clark\par}{10}
+\cvrow{}{\href{https://en.xjtu.edu.cn/}{\textcolor{accent}{\textbf{Xi'an Jiaotong University}}}\par
+\datedline{\textit{B.S. in Physics (Honors)}}{Sep 2019--Jul 2023}
 
-\datedline{\textit{Special Class for the Gifted Young}}{\textit{Sep 2017--Jul 2019}}
-}{8}
-\cvrow{}{\href{https://www.berkeley.edu/}{\textcolor{black}{\textbf{University of California, Berkeley}}}\par
-\datedline{\textit{BPIE Program (non-degree visiting program)}}{\textit{Aug--Dec 2021}}
-}{15}
-\cvrow{Current Research}{\entry{\href{https://illinois.edu/}{\textcolor{black}{\textbf{University of Illinois Urbana-Champaign}}}}{Graduate researcher, Bryan K. Clark group}{Nov 2025--present}
-\vspace{6pt}
+\datedline{\textit{Special Class for the Gifted Young}}{Sep 2017--Jul 2019}
+}{10}
+\cvrow{}{\href{https://www.berkeley.edu/}{\textcolor{accent}{\textbf{University of California, Berkeley}}}\par
+\datedline{\textit{BPIE Program (non-degree visiting program)}}{Aug--Dec 2021}
+}{18}
+\cvrow{Current Research}{\entry{\href{https://illinois.edu/}{\textcolor{accent}{\textbf{University of Illinois Urbana-Champaign}}}}{Graduate researcher, Bryan K. Clark group}{Nov 2025--present}
+\vspace{8pt}
 \textbf{Crystal-field inverse modeling}\par
 \begin{itemize}
-  \item Infer multiple crystal-field candidates from susceptibility with a residual MLP and conditional Gaussian mixture models (cGMMs).
-  \item Check candidates with forward susceptibility simulation; test noise augmentation on held-out synthetic curves and experimental measurements.
+  \item Represent non-unique crystal-field solutions from susceptibility with residual-MLP conditional Gaussian mixture models.
+  \item Validate candidates by reconstructing susceptibility; test training noise on synthetic curves and experimental measurements.
 \end{itemize}
-\vspace{6pt}
+\vspace{8pt}
 \textbf{Magnetic-scattering inverse modeling}\par
 \begin{itemize}
   \item Infer exchange parameters from powder-averaged neutron-scattering maps using MLP and ResNet conditional Gaussian mixtures.
   \item Use exact Sunny forward checks and classical fits as references; test sensitivity to noise, intensity scale, and background offsets.
 \end{itemize}
-\vspace{6pt}
+\vspace{8pt}
 \textbf{Neural-network backflow / variational Monte Carlo}\par
 \begin{itemize}
   \item Implement JAX neural-network backflow wavefunctions and variational Monte Carlo for lattice Hubbard models.
   \item Profile parallel GPU sampling, local-energy evaluation, and gradient synchronization; check chunked evaluation against the original computation.
-\end{itemize}}{15}
+\end{itemize}}{18}
 \end{longtable}
 \newpage
 \begin{longtable}{@{}p{80pt}@{\hspace{14pt}}p{\dimexpr\textwidth-94pt\relax}@{}}
 \cvrow{Publications}{\textbf{[P1] \href{https://doi.org/10.1073/pnas.2602117123}{\textcolor{black}{Evidence of intertwined pair density and charge density wave orders~in~UTe$_2$}}}\par
 Zhen Zhu, Yudi Huang, Julian May-Mann, \textbf{Kaiming Liu}, Zheyu Wu, Shanta R. Saha, Johnpierre Paglione, Alexander G. Eaton, Andrej Cabala, Michal Vali\v{s}ka, Eduardo Fradkin, Vidya Madhavan.\par
-\textit{PNAS 123 (29), e2602117123 (2026)}.\quad \href{https://arxiv.org/abs/2603.08688}{arXiv}.\par}{15}
+\textit{PNAS 123 (29), e2602117123 (2026)}.\quad \href{https://arxiv.org/abs/2603.08688}{arXiv}.\par}{18}
 
-\cvrow{Prior Research}{\entry{\href{https://illinois.edu/}{\textcolor{black}{\textbf{University of Illinois Urbana-Champaign}}}}{Research assistant, Vidya Madhavan group}{Aug 2023--Oct 2025}
+\cvrow{Prior Research}{\entry{\href{https://illinois.edu/}{\textcolor{accent}{\textbf{University of Illinois Urbana-Champaign}}}}{Research assistant, Vidya Madhavan group}{Aug 2023--Oct 2025}
 \begin{itemize}
   \item Grew thin-film heterostructures with MBE and characterized electronic structure using STM/STS in ultrahigh vacuum.
   \item Automated growth temperature control and built Python/MATLAB analysis of STM/STS quasiparticle-interference data.
-\end{itemize}}{8}
-\cvrow{}{\entry{\href{https://en.xjtu.edu.cn/}{\textcolor{black}{\textbf{Xi'an Jiaotong University}}}}{Research assistant, Yongchang Zhang group}{Mar 2022--Jul 2023}
+\end{itemize}}{10}
+\cvrow{}{\entry{\href{https://en.xjtu.edu.cn/}{\textcolor{accent}{\textbf{Xi'an Jiaotong University}}}}{Research assistant, Yongchang Zhang group}{Mar 2022--Jul 2023}
 \begin{itemize}
   \item Simulated Rydberg-atom dynamics and photon-mediated interactions in Python/MATLAB to study quantum nonlinear optics.
   \item Built a discrete-time lattice model of two-qubit phase-flip dynamics and many-body regimes.
-\end{itemize}}{8}
-\cvrow{}{\entry{\href{https://www.berkeley.edu/}{\textcolor{black}{\textbf{University of California, Berkeley}}}}{Research assistant, Michael F. Crommie group}{Oct--Dec 2021}
+\end{itemize}}{10}
+\cvrow{}{\entry{\href{https://www.berkeley.edu/}{\textcolor{accent}{\textbf{University of California, Berkeley}}}}{Research assistant, Michael F. Crommie group}{Oct--Dec 2021}
 \begin{itemize}
   \item Assisted synthesis and STM characterization of graphene nanoribbons with five-membered rings to study their electronic states.
-\end{itemize}}{15}
-\cvrow{Teaching}{\entry{\href{https://illinois.edu/}{\textcolor{black}{\textbf{University of Illinois Urbana-Champaign}}}}{Teaching assistant, PHYS 212}{Spring \& Fall 2026}}{8}
-\cvrow{}{\entry{\href{https://illinois.edu/}{\textcolor{black}{\textbf{University of Illinois Urbana-Champaign}}}}{Teaching assistant, PHYS 102}{Aug--Dec 2023}}{15}
+\end{itemize}}{18}
+\cvrow{Teaching}{\href{https://illinois.edu/}{\textcolor{accent}{\textbf{University of Illinois Urbana-Champaign}}}\par
+\datedline{\textit{Teaching assistant, PHYS 212}}{Spring \& Fall 2026}
+\datedline{\textit{Teaching assistant, PHYS 102}}{Aug--Dec 2023}}{18}
 \cvrow{Selected Honors}{\datedline{China National Scholarship}{2021}
-Xi'an Jiaotong University\par}{8}
+Xi'an Jiaotong University\par}{10}
 \cvrow{}{\datedline{Mathematical Contest in Modeling, Meritorious Winner}{2021}
-COMAP\par}{15}
+COMAP\par}{18}
 \cvrow{Technical Skills}{\textit{ML / scientific computing:} Python (PyTorch, JAX, NumPy, SciPy), MATLAB; conditional mixture models; Git, Linux.\par
 \textit{Computational physics / HPC:} MCMC, variational Monte Carlo, numerical optimization; GPU/cluster computation and runtime profiling.\par
-\textit{Experiment:} MBE, STM/STS, ultrahigh vacuum, feedback control, experimental automation and data analysis.\par}{15}
+\textit{Experiment:} MBE, STM/STS, ultrahigh vacuum, feedback control, experimental automation and data analysis.\par}{18}
 \end{longtable}
 \end{document}

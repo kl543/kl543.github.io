@@ -8,9 +8,10 @@ interface Props {
   description?: string;
   hasWriting?: boolean;
   home?: boolean;
+  research?: boolean;
 }
-const { title = `${profile.name} — Physics & Scientific Machine Learning`, description = profile.description, hasWriting = false, home = false } = Astro.props;
-const canonical = new URL(Astro.url.pathname, profile.website);
+const { title = `${profile.name} — Physics & Scientific Machine Learning`, description = profile.description, hasWriting = false, home = false, research = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/^\/404\/?$/, '/404.html'), profile.website);
 ---
 <!doctype html>
 <html lang="en">
@@ -21,6 +22,7 @@ const canonical = new URL(Astro.url.pathname, profile.website);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/fonts/academic-serif-latin.woff2" as="font" type="font/woff2" crossorigin />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -34,15 +36,14 @@ const canonical = new URL(Astro.url.pathname, profile.website);
     <div class:list={['page', { home }]}>
       <header class="site-header">
         {home ? <h1 id="name" class="site-name">{profile.name}</h1> : <a class="site-name" href="/">{profile.name}</a>}
-        {!home && <nav aria-label="Main navigation">
-          <a href="/#about">About</a>
-          <a href="/#research">Research</a>
+        <nav aria-label="Main navigation">
+          <a href="/research/" aria-current={research ? 'page' : undefined}>Research</a>
           {hasWriting && <a href="/#writing">Writing</a>}
           {talks.length > 0 && <a href="/#talks">Talks</a>}
           <a href={profile.cvUrl} aria-label="Curriculum vitae (PDF)">CV</a>
-        </nav>}
+        </nav>
       </header>
-      <main id="main"><slot /></main>
+      <main id="main" tabindex="-1"><slot /></main>
     </div>
   </body>
 </html>
