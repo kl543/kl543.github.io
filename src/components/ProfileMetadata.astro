@@ -1,0 +1,43 @@
+---
+import profile from '../data/profile.json';
+
+const personId = `${profile.website}#person`;
+const websiteId = `${profile.website}#website`;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfilePage',
+      '@id': `${profile.website}#profile`,
+      url: profile.website,
+      name: profile.name,
+      description: profile.description,
+      isPartOf: { '@id': websiteId },
+      mainEntity: {
+        '@type': 'Person',
+        '@id': personId,
+        name: profile.name,
+        url: profile.website,
+        image: new URL('images/kaiming-liu.jpg', profile.website).href,
+        description: profile.description,
+        affiliation: {
+          '@type': 'CollegeOrUniversity',
+          name: profile.institution,
+          url: profile.education[0].url,
+        },
+        sameAs: [profile.github, profile.linkedin],
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      name: profile.name,
+      url: profile.website,
+      publisher: { '@id': personId },
+    },
+  ],
+};
+// Keep JSON data from terminating its enclosing HTML script element.
+const jsonLd = JSON.stringify(structuredData).replaceAll('<', '\\u003c');
+---
+<script type="application/ld+json" is:inline set:html={jsonLd} />

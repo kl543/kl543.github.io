@@ -21,6 +21,8 @@ npm run dev
 - `src/data/talks.json`: future public talks; an empty list stays hidden.
 - `src/pages/index.astro`: the homepage structure.
 - `src/pages/research.astro`: a static compatibility redirect to `/#research`, with the homepage canonical URL and `noindex`.
+- `src/components/ProfileMetadata.astro`: inert homepage JSON-LD for ProfilePage, Person, and WebSite, using verified profile data.
+- `src/pages/sitemap.xml.ts`: a build-time XML sitemap containing Home and any published writing, excluding redirects, drafts, downloads, and 404.
 - `src/styles/global.css`: restrained styling and responsive layout.
 - `public/images/kaiming-liu.jpg`: compressed portrait; the original image is kept outside this repository.
 - `public/fonts/`: one small self-hosted Source Serif 4 subset, its OFL license, and provenance. Only weights 400 and 600 are used.
@@ -40,3 +42,5 @@ The pre-expansion version is preserved at `checkpoint/v3-before-multipage-cv-red
 The deployed version before the single-page refactor is preserved at `checkpoint/v5-before-single-page-final-20261001` (`2dc64b1`). The two-page CV was retained without changes in this refactor.
 
 See [SITE_MAINTENANCE.md](SITE_MAINTENANCE.md) for content updates, publication, writing and talk workflows, CV maintenance, and privacy rules.
+
+The crawlable `robots.txt` advertises [sitemap.xml](https://kl543.github.io/sitemap.xml). See [SEARCH_CONSOLE_SETUP.md](SEARCH_CONSOLE_SETUP.md) for the owner's remaining manual verification and indexing steps.

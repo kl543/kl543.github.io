@@ -1,5 +1,6 @@
 ---
 import profile from '../data/profile.json';
+import ProfileMetadata from '../components/ProfileMetadata.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
   description?: string;
   home?: boolean;
 }
-const { title = `${profile.name} — Physics & Scientific Machine Learning`, description = profile.description, home = false } = Astro.props;
+const { title = `${profile.name} — Physics & Scientific Machine Learning, UIUC`, description = profile.description, home = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/^\/404\/?$/, '/404.html'), profile.website);
 ---
 <!doctype html>
@@ -27,6 +28,7 @@ const canonical = new URL(Astro.url.pathname.replace(/^\/404\/?$/, '/404.html'),
     <meta property="og:image" content={`${profile.website}images/kaiming-liu.jpg`} />
     <meta property="og:image:alt" content="Portrait of Kaiming Liu" />
     <meta name="theme-color" content="#ffffff" />
+    {home && <ProfileMetadata />}
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

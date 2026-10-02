@@ -25,6 +25,9 @@ The professional-links row follows the compact bio: Email, CV, Google Scholar on
 | Future public talks | `src/data/talks.json` |
 | Homepage ordering | `src/pages/index.astro` |
 | Legacy Research redirect | `src/pages/research.astro` |
+| ProfilePage / Person / WebSite metadata | `src/components/ProfileMetadata.astro` |
+| Canonical page sitemap | `src/pages/sitemap.xml.ts` |
+| Crawl directives and sitemap discovery | `public/robots.txt` |
 | Typography, spacing, mobile layout | `src/styles/global.css` |
 | Portrait | `public/images/kaiming-liu.jpg` |
 | Self-hosted font, license and provenance | `public/fonts/` |
@@ -48,6 +51,8 @@ npm run preview
 Run `npm run cv:build` before the site build whenever shared CV facts change. Homepage-only edits do not require regenerating or redesigning the CV. Review Home at 1440, 1280, 768, 390, and 320 px, including the professional row, project alignment, overflow, keyboard navigation, anchors, and contrast. If the CV changed, inspect both PDF pages. The build checks generated pages for headings, canonical URLs, absence of primary navigation and JavaScript, professional-link ordering, local links/fragments, the Research redirect, the font license, and identical CV copies. Commit the changed deliverables, then push to `main`. GitHub Actions deploys automatically. Check the workflow and live Home, legacy Research URL, and CV after deployment. `site` is the user-site origin `https://kl543.github.io`; do not add a repository base path.
 
 The old `/research/`, `/interests.html`, and `/projects.html` addresses redirect directly to `/#research` using static HTML refreshes with fallback links. `/contact.html` goes to `/#about`; `/coursework.html` goes to `/#background`. These redirects use `noindex` and do not duplicate project content. No individual Research detail routes existed when the single-page refactor began. Keep the stable homepage anchors `crystal-field`, `magnetic-scattering`, `neural-backflow`, and `background`; `education` is also retained. The original CV address `/assets/cv/Kaiming_Liu_CV.pdf` serves the current PDF. Keep these compatibility routes while external bookmarks may exist.
+
+The homepage contains one inert `application/ld+json` block, not executable browser JavaScript. Its ProfilePage describes the same Person shown visibly, and WebSite names the site Kaiming Liu. Only owner-confirmed GitHub and LinkedIn identities are in `sameAs`; independently verify any additional identity before adding it. The build validates the JSON-LD, requires an indexable homepage, and checks that the sitemap contains exactly the canonical public HTML pages, excluding redirects and 404. Published writing enters the sitemap automatically; drafts and duplicate CV downloads do not. Do not fabricate profile dates, aliases, verification tokens, or search guarantees. Manual Search Console steps are in [SEARCH_CONSOLE_SETUP.md](SEARCH_CONSOLE_SETUP.md).
 
 On the owner’s Mac, the default `~/.config` directory is owned by root. GitHub CLI authorization is therefore saved in the writable `~/Library/Application Support/gh` directory, with credentials in the macOS keychain. This repository’s local Git credential helper already uses that directory. For manual `gh` commands on this Mac, prefix them with `GH_CONFIG_DIR="$HOME/Library/Application Support/gh"`; this machine-specific detail is not required for GitHub Actions or another checkout.
 
