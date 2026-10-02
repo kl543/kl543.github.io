@@ -1,16 +1,13 @@
 ---
 import profile from '../data/profile.json';
-import talks from '../data/talks.json';
 import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
-  hasWriting?: boolean;
   home?: boolean;
-  research?: boolean;
 }
-const { title = `${profile.name} — Physics & Scientific Machine Learning`, description = profile.description, hasWriting = false, home = false, research = false } = Astro.props;
+const { title = `${profile.name} — Physics & Scientific Machine Learning`, description = profile.description, home = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/^\/404\/?$/, '/404.html'), profile.website);
 ---
 <!doctype html>
@@ -36,12 +33,6 @@ const canonical = new URL(Astro.url.pathname.replace(/^\/404\/?$/, '/404.html'),
     <div class:list={['page', { home }]}>
       <header class="site-header">
         {home ? <h1 id="name" class="site-name">{profile.name}</h1> : <a class="site-name" href="/">{profile.name}</a>}
-        <nav aria-label="Main navigation">
-          <a href="/research/" aria-current={research ? 'page' : undefined}>Research</a>
-          {hasWriting && <a href="/#writing">Writing</a>}
-          {talks.length > 0 && <a href="/#talks">Talks</a>}
-          <a href={profile.cvUrl} aria-label="Curriculum vitae (PDF)">CV</a>
-        </nav>
       </header>
       <main id="main" tabindex="-1"><slot /></main>
     </div>

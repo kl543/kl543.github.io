@@ -12,7 +12,7 @@ interface Props { post: CollectionEntry<'writing'>; }
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---
-<Page title={`${post.data.title} — Kaiming Liu`} description={post.data.description} hasWriting>
+<Page title={`${post.data.title} — Kaiming Liu`} description={post.data.description}>
   <article class="prose">
     <p class="back-link"><a href="/#writing">← All writing</a></p>
     <h1>{post.data.title}</h1>

@@ -9,11 +9,11 @@
   "github": "https://github.com/kl543",
   "linkedin": "https://www.linkedin.com/in/kaiming-l-9a166526a/",
   "cvUrl": "/cv/Kaiming_Liu_CV.pdf",
-  "description": "Kaiming Liu is a Physics PhD student at UIUC working on probabilistic inverse models, magnetic observables, and simulation-to-experiment robustness.",
+  "description": "Kaiming Liu is a Physics PhD student at UIUC studying scientific machine learning, probabilistic inverse problems, and computational condensed matter physics.",
   "bio": [
-    "I build probabilistic models for scientific inverse problems, with a focus on magnetic measurements and the gap between simulations and experiments."
+    "My research uses scientific machine learning for inverse problems, focusing on probabilistic inference and simulation-to-experiment robustness. I previously worked in experimental condensed matter physics."
   ],
-  "background": "In Vidya Madhavan’s group at UIUC, I grew thin-film heterostructures with MBE, used STM/STS in ultrahigh vacuum, and developed temperature-control and data-analysis tools. Earlier research included Rydberg-atom simulations at Xi’an Jiaotong University and STM research in Michael F. Crommie’s group at UC Berkeley.",
+  "background": "Before moving to computation, I worked in Vidya Madhavan’s group at UIUC, growing thin films with molecular beam epitaxy (MBE) and studying electronic structure with STM/STS in ultrahigh vacuum (UHV). I also developed experimental automation and Python/MATLAB analysis of quasiparticle-interference data.",
   "interests": "Scientific machine learning; inverse problems; probabilistic inference; simulation-to-experiment transfer; computational condensed matter physics.",
   "education": [
     {

@@ -1,6 +1,6 @@
 # Kaiming Liu — academic website
 
-Source for [kl543.github.io](https://kl543.github.io/), a small, static academic website built with Astro and plain CSS. Home introduces the researcher and selected work; [Research](https://kl543.github.io/research/) explains the projects and their validation. No browser JavaScript, analytics, backend, or external font requests.
+Source for [kl543.github.io](https://kl543.github.io/), a single-page researcher homepage built with Astro and plain CSS. Home contains the introduction, professional links, three research projects, publications, and background. No primary navbar, browser JavaScript, analytics, backend, or external font requests.
 
 ## Local development
 
@@ -16,11 +16,11 @@ npm run dev
 ## Content and CV
 
 - `src/data/profile.json`: canonical public bio, education, dates, links, CV experience, and skills.
-- `src/data/research.json`: public project explanations, homepage summaries, and workflow labels.
+- `src/data/research.json`: the three projects, their stable anchor IDs, descriptors, and concise explanations.
 - `src/data/publications.json`: verified papers; empty lists hide the section.
 - `src/data/talks.json`: future public talks; an empty list stays hidden.
-- `src/pages/index.astro` and `src/pages/research.astro`: page structure.
-- `src/components/Workflow.astro`: original, accessible research schematics using HTML and inline SVG arrows.
+- `src/pages/index.astro`: the homepage structure.
+- `src/pages/research.astro`: a static compatibility redirect to `/#research`, with the homepage canonical URL and `noindex`.
 - `src/styles/global.css`: restrained styling and responsive layout.
 - `public/images/kaiming-liu.jpg`: compressed portrait; the original image is kept outside this repository.
 - `public/fonts/`: one small self-hosted Source Serif 4 subset, its OFL license, and provenance. Only weights 400 and 600 are used.
@@ -36,5 +36,7 @@ Push to `main`. `.github/workflows/deploy.yml` installs locked dependencies, bui
 The original website is preserved on both the branch and annotated tag `archive/pre-rebuild-20261001` at `f705797`. View it on GitHub or recover it in a separate worktree. No history was rewritten.
 
 The pre-expansion version is preserved at `checkpoint/v3-before-multipage-cv-redesign-20261001` (`9b19150`). Earlier checkpoints remain unchanged.
+
+The deployed version before the single-page refactor is preserved at `checkpoint/v5-before-single-page-final-20261001` (`2dc64b1`). The two-page CV was retained without changes in this refactor.
 
 See [SITE_MAINTENANCE.md](SITE_MAINTENANCE.md) for content updates, publication, writing and talk workflows, CV maintenance, and privacy rules.

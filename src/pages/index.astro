@@ -6,14 +6,17 @@ import Talks from '../components/Talks.astro';
 import profile from '../data/profile.json';
 import research from '../data/research.json';
 const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const scholar = 'scholar' in profile && typeof profile.scholar === 'string' ? profile.scholar : undefined;
 ---
-<Page home hasWriting={writing.length > 0}>
+<Page home>
   <section id="about" class="intro" aria-labelledby="name">
     <div class="intro-text">
       <p>I am a {profile.title} in {profile.advisor}’s group at the <a href={profile.education[0].url}>{profile.institution}</a>.</p>
       {profile.bio.map(paragraph => <p>{paragraph}</p>)}
       <ul class="contact-links" aria-label="Contact and professional links">
         <li><a href={`mailto:${profile.email}`}>Email</a></li>
+        <li><a href={profile.cvUrl} aria-label="Curriculum vitae (PDF)">CV</a></li>
+        {scholar && <li><a href={scholar}>Google Scholar</a></li>}
         <li><a href={profile.github}>GitHub</a></li>
         <li><a href={profile.linkedin}>LinkedIn</a></li>
       </ul>
@@ -21,20 +24,16 @@ const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort
     <img class="portrait" src="/images/kaiming-liu.jpg" alt="Portrait of Kaiming Liu" width="420" height="420" fetchpriority="high" decoding="async" />
   </section>
 
-  <section class="current-work" aria-labelledby="current-work-heading">
-    <h2 id="current-work-heading">Current work</h2>
-    <p>{research.currentWork}</p>
-  </section>
-
-  <section id="research" class="selected-research" aria-labelledby="research-heading">
-    <h2 id="research-heading">Selected research</h2>
+  <section id="research" aria-labelledby="research-heading">
+    <h2 id="research-heading">Research</h2>
     <ol class="project-list">
-      {research.projects.filter(project => project.selected).map((project, index) => (
-        <li>
+      {research.projects.map((project, index) => (
+        <li id={project.id}>
           <span class="project-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
           <div>
-            <h3><a href={`/research/#${project.id}`}>{project.title}</a></h3>
-            <p>{project.summary}</p>
+            <h3>{project.title}</h3>
+            <p class="project-descriptor">{project.descriptor}</p>
+            <p>{project.text}</p>
           </div>
         </li>
       ))}
@@ -43,7 +42,11 @@ const writing = (await getCollection('writing', ({ data }) => !data.draft)).sort
 
   <Publications />
 
-  <p id="education" class="background-note">Before UIUC, I studied in {profile.education[1].institution}’s Special Class for the Gifted Young (2017–2019) and completed a {profile.education[1].degree} (2019–2023).</p>
+  <section id="background" aria-labelledby="background-heading">
+    <h2 id="background-heading">Background</h2>
+    <p>{profile.background}</p>
+    <p id="education">Before UIUC, I studied in {profile.education[1].institution}’s Special Class for the Gifted Young ({profile.education[2].shortDates}), then completed a {profile.education[1].degree} ({profile.education[1].shortDates}).</p>
+  </section>
 
   {writing.length > 0 && (
     <section id="writing" aria-labelledby="writing-heading">

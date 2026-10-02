@@ -1,30 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
-import Page from '../layouts/Page.astro';
-import Workflow from '../components/Workflow.astro';
-import research from '../data/research.json';
-const writing = await getCollection('writing', ({ data }) => !data.draft);
+import profile from '../data/profile.json';
 ---
-<Page title="Research — Kaiming Liu" description="Probabilistic magnetic inverse models, simulation robustness, neural-network backflow, and experimental condensed matter research by Kaiming Liu." research hasWriting={writing.length > 0}>
-  <div class="research-intro">
-    <h1>Research</h1>
-    <p>{research.introduction}</p>
-    <nav class="research-index" aria-label="Research projects">
-      {research.projects.map((project, index) => <a href={`#${project.id}`}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span> {project.shortTitle}</a>)}
-    </nav>
-  </div>
-  {research.projects.map((project, index) => (
-    <section id={project.id} class="research-project" aria-labelledby={`${project.id}-heading`}>
-      <div class="project-heading">
-        <span class="project-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-        <div>
-          <h2 id={`${project.id}-heading`}>{project.title}</h2>
-          <p class="project-descriptor">{project.descriptor}</p>
-        </div>
-      </div>
-      {project.paragraphs.map(paragraph => <p>{paragraph}</p>)}
-      {project.workflow && <Workflow id={project.id} workflow={project.workflow} />}
-    </section>
-  ))}
-  <p class="research-footer">Publication and contact links are on the <a href="/">homepage</a>. A complete academic record is in my <a href="/cv/Kaiming_Liu_CV.pdf">CV</a>.</p>
-</Page>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research — Kaiming Liu</title>
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href={profile.website} />
+    <meta http-equiv="refresh" content="0;url=/#research" />
+  </head>
+  <body><p>Research is now on the homepage. <a href="/#research">View Kaiming Liu’s research</a>.</p></body>
+</html>

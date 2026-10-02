@@ -1,83 +1,22 @@
 {
-  "introduction": "I study how physical models can be learned from measurements, and how computation can test the resulting explanations. My current projects connect probabilistic inverse modeling, simulation-to-experiment robustness, and computational many-body physics.",
-  "currentWork": "Magnetic measurements can admit more than one microscopic explanation. I combine probabilistic inference with physical forward checks to study this ambiguity, and test how measurement noise changes what models trained on simulations can recover.",
   "projects": [
     {
       "id": "crystal-field",
       "title": "Crystal-field inverse modeling",
-      "shortTitle": "Crystal fields",
       "descriptor": "Susceptibility · probabilistic inference",
-      "selected": true,
-      "summary": "Represent multiple crystal-field parameter candidates from susceptibility curves, then check their physical predictions against the input measurements.",
-      "paragraphs": [
-        "Magnetic susceptibility reflects how a material responds to an applied field, but the inverse problem can be ambiguous: different crystal-field parameters may produce similar temperature-dependent curves. I use a residual multilayer perceptron (MLP) with a conditional Gaussian mixture model (cGMM) to represent several parameter candidates rather than forcing each curve into a single estimate. The inputs are directional susceptibility curves; the outputs describe candidate crystal-field coefficients and a molecular-field parameter.",
-        "Each candidate is checked by calculating its susceptibility with the forward physical model and comparing that reconstruction with the input curve. I evaluate this workflow on held-out simulations and experimental measurements, including studies of training noise, intensity scaling, and offsets. The aim is to connect flexible statistical inference to observable physical checks: a good reconstruction supports compatibility with a measurement, while leaving open whether the underlying parameters are uniquely determined."
-      ],
-      "workflow": {
-        "label": "Crystal-field inference and validation workflow",
-        "steps": [
-          { "title": "Susceptibility", "detail": "Directional curves χ(T)" },
-          { "title": "Inverse model", "detail": "Residual MLP + cGMM" },
-          { "title": "Candidates", "detail": "Crystal-field parameters" },
-          { "title": "Forward check", "detail": "Reconstruct χ(T)" }
-        ],
-        "caption": "Candidate parameters are tested in the observable space."
-      }
+      "text": "Magnetic susceptibility can be consistent with multiple crystal-field parameter sets. I use a residual multilayer perceptron (MLP) with a conditional Gaussian mixture model (cGMM) to represent several plausible inverse solutions rather than a single estimate. I check candidates through forward susceptibility reconstruction and study robustness using simulated curves, noise augmentation, and experimental measurements."
     },
     {
       "id": "magnetic-scattering",
       "title": "Magnetic-scattering inverse modeling",
-      "shortTitle": "Magnetic scattering",
       "descriptor": "Neutron scattering · simulation robustness",
-      "selected": true,
-      "summary": "Infer exchange parameters from powder-averaged neutron maps, using Sunny forward calculations to check candidates and study sensitivity to noise.",
-      "paragraphs": [
-        "Powder-averaged neutron-scattering maps encode magnetic excitations across momentum transfer and energy. Recovering the exchange interactions that generated a map is an inverse problem, especially when distinct parameters lead to similar patterns. I train MLP and ResNet conditional Gaussian mixture models on simulated maps to propose candidate exchange parameters for a specified magnetic Hamiltonian.",
-        "I then recompute the scattering map for each candidate with Sunny, comparing the reconstructed observables with the input and using classical fits as references. Noise, intensity scaling, and background offsets provide controlled tests of how the learned inverse changes when observations depart from clean training simulations. This work focuses on synthetic validation and robustness studies. It asks which features of a scattering map constrain the physical model, and how forward calculation can help assess an inverse estimate before applying it to measurements."
-      ],
-      "workflow": {
-        "label": "Magnetic-scattering inference and validation workflow",
-        "steps": [
-          { "title": "Scattering map", "detail": "Powder-averaged S(|Q|, ω)" },
-          { "title": "Inverse model", "detail": "MLP / ResNet + cGMM" },
-          { "title": "Candidates", "detail": "Exchange parameters" },
-          { "title": "Sunny check", "detail": "Recompute the map" }
-        ],
-        "caption": "Forward reconstruction links inferred interactions to scattering observables."
-      }
+      "text": "I infer exchange parameters from powder-averaged neutron-scattering maps using MLP and ResNet conditional Gaussian mixture models. I validate candidates with Sunny forward calculations and use classical fits as references. Robustness studies examine noise, intensity scaling, and background offsets in simulated maps."
     },
     {
       "id": "neural-backflow",
       "title": "Neural-network backflow and VMC",
-      "shortTitle": "Neural backflow",
       "descriptor": "Correlated fermions · JAX / GPU computation",
-      "selected": true,
-      "summary": "Implement neural-network backflow wavefunctions and variational Monte Carlo in JAX, with attention to parallel computation and numerical correctness.",
-      "paragraphs": [
-        "For correlated fermions, representing the many-body wavefunction is itself a computational problem. I implement neural-network backflow wavefunctions and variational Monte Carlo (VMC) for lattice Hubbard models in JAX. Backflow makes the wavefunction depend flexibly on the particle configuration; VMC samples configurations to estimate energy and optimize the variational parameters.",
-        "My work includes GPU and multi-GPU sampling, local-energy evaluation, gradient synchronization, and runtime profiling. I check changes to chunked energy evaluation against the original computation and examine the consistency of reductions across devices. These checks connect implementation choices to the numerical quantities used during optimization. The goal is to make many-body calculations practical while preserving a clear account of what each computational change does to the calculation."
-      ],
-      "workflow": {
-        "label": "Neural-network backflow variational Monte Carlo workflow",
-        "steps": [
-          { "title": "Configurations", "detail": "Lattice fermion occupations" },
-          { "title": "Wavefunction", "detail": "Neural-network backflow" },
-          { "title": "VMC estimates", "detail": "Sampling + local energies" },
-          { "title": "Optimization", "detail": "Energy + synchronized gradients" }
-        ],
-        "caption": "The sampling and energy-estimation cycle is repeated during optimization."
-      }
-    },
-    {
-      "id": "experimental-background",
-      "title": "Experimental background",
-      "shortTitle": "Experiment",
-      "descriptor": "MBE · STM/STS · experimental automation",
-      "selected": false,
-      "paragraphs": [
-        "Before moving to computation, I worked in Vidya Madhavan’s group at UIUC. I grew thin-film heterostructures using molecular beam epitaxy (MBE) and characterized electronic structure with scanning tunneling microscopy and spectroscopy (STM/STS) in ultrahigh vacuum. I also automated growth temperature control and developed Python/MATLAB analysis of quasiparticle-interference data.",
-        "Working with both measurements and their analysis informs my current interest in the gap between idealized simulations and experimental observations. It connects my experimental background to questions about noise, forward modeling, and interpretable scientific inference."
-      ]
+      "text": "I implement neural-network backflow wavefunctions and variational Monte Carlo (VMC) for lattice Hubbard models of correlated fermions in JAX. My work includes GPU and multi-GPU sampling, local-energy evaluation, numerical consistency checks, and runtime profiling."
     }
   ]
 }

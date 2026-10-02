@@ -2,30 +2,29 @@
 
 ## Design principle
 
-The current reference survey included [Jason Wei](https://www.jasonwei.net/), [Tri Dao](https://tridao.me/), [Noam Brown](https://noambrown.com/), [Andrej Karpathy](https://karpathy.ai/), [Yilun Du](https://yilundu.github.io/), and [Jaehoon Hahm](https://jaehoon-hahm.github.io/). It informed conventional navigation, immediate researcher identification, problem-first explanations, and restrained typography. Home is the short introduction and research entry point; `/research/` provides substantive project explanations. Publications remain on Home until there is enough material to justify a separate page. Writing and Talks stay hidden until populated. No reference prose, source code, or assets were copied.
+The single-page reference survey included the current homepages of [Jason Wei](https://www.jasonwei.net/), [Tri Dao](https://tridao.me/), [Noam Brown](https://noambrown.com/), [Andrej Karpathy](https://karpathy.ai/), and [Yilun Du](https://yilundu.github.io/). It informed immediate researcher identification, direct professional links, problem-first explanations, and restrained typography. Home contains the complete public introduction, Research, Publications, and Background. There is no primary navbar or separate project page to read. Writing and Talks stay hidden until populated. No reference prose, source code, or assets were copied.
 
-Source Serif 4, Georgia, and system sans were compared in actual desktop and mobile renders. Source Serif 4 was chosen for its open letterforms, readable long paragraphs, and distinction from the sans navigation and metadata. The website uses a centered 720 px column, 18 px / 1.55 body, 32 px name, 23 px section headings, one dark navy accent (`#244865`), and thin gray rules. The portrait is 132 px on desktop and 88 px on mobile. Mobile body text is 17 px; the smallest width uses a 76 px portrait. Numbered selected projects link to their corresponding Research sections. The research workflows use semantic ordered lists with decorative inline SVG arrows, and change from four columns to a vertical sequence on phones.
+The existing Source Serif 4 system was retained after desktop and mobile comparison. The website uses a centered 720 px text area, 18 px / 1.55 introductory body text, 17 px project paragraphs, a 32 px name, 23 px section headings, one dark navy accent (`#244865`), and thin gray rules. The portrait is 132 px on desktop and 88 px on mobile. Mobile introductory text is 17 px and project paragraphs are 16 px; the smallest width uses a 76 px portrait. Numbered projects have plain-text titles, short sans descriptors, and two or three sentences explaining methods and checks. Diagrams were retired because those sentences already explain the input, inference, and validation without repeating them visually.
 
-The self-hosted Latin font is approximately 33 KB, restricted to weights 400–600; only 400 and 600 are used. Its internal name and CSS family are `Academic Serif` because Adobe reserves the name Source for modified fonts. See `public/fonts/README.txt` and `OFL.txt` for provenance and licensing. Georgia is the fallback, with system sans for navigation and metadata. No external font service or browser JavaScript is needed.
+The self-hosted Latin font is approximately 33 KB, restricted to weights 400–600; only 400 and 600 are used. Its internal name and CSS family are `Academic Serif` because Adobe reserves the name Source for modified fonts. See `public/fonts/README.txt` and `OFL.txt` for provenance and licensing. Georgia is the fallback, with system sans for professional links and metadata. No external font service or browser JavaScript is needed.
 
 The CV survey included the current linked PDFs of [Jaehoon Hahm](https://jaehoon-hahm.github.io/Jaehoon_Hahm_CV.pdf), [Yilun Du](https://yilundu.github.io/cv.pdf), [Shunyu Yao](https://alfredyao.github.io/Shunyu_Yao_CV.pdf), and [Tri Dao](https://tridao.me/assets/pdf/cv.pdf). Three actual two-page candidates were compiled and visually compared: Libertinus Serif with sans labels, TeX Gyre Pagella with Heros, and NewTX Text with sans labels. Pagella/Heros was selected for clear body text, legible italics, stronger project headings, and compact two-line bullets. All use readily available Overleaf packages.
 
 The final CV uses 11 pt Pagella, Heros section labels and metadata, muted forest labels (`#35584F`), dark navy institutions and links (`#244865`), near-black body, and gray dates. The 80 pt label column and 14 pt gutter align throughout. Body leading is increased by 4%; bullet spacing is 3 pt, project spacing 8 pt, gaps between entries 10 pt, and gaps between sections 18 pt. A 28 pt name and a thin gray header rule separate contacts from the document. Dates are right-aligned sans rather than competing with italic roles. Teaching shares one UIUC heading. Page one holds Research Profile, grouped education, and current research; page two holds publications, prior research, teaching, honors, and skills. Recheck balance as content grows; do not shrink the font or add filler to preserve two pages.
 
-The Research page uses a smaller 23 px name link so its own heading leads the hierarchy. Keep the page readable and quiet. Do not add cards, decorative effects, badges, empty sections, or a portfolio-style hero.
+The professional-links row follows the compact bio: Email, CV, Google Scholar only if verified, GitHub, LinkedIn. All use the same plain-text styling. No exact Scholar profile could be verified during this refactor, so it is omitted. To add one later, confirm the owner and set `scholar` in `profile.json` to the exact public profile URL; the homepage inserts it in the correct position. Keep the page readable and quiet. Do not add cards, decorative effects, badges, empty sections, or a portfolio-style hero.
 
 ## Where to edit
 
 | Content | File |
 | --- | --- |
 | Bio, background, contact links | `src/data/profile.json` |
-| Home research summaries, Research prose and workflow labels | `src/data/research.json` |
+| Research project IDs, titles, descriptors, and explanations | `src/data/research.json` |
 | Education, research roles, teaching, honors, skills, CV update date | `src/data/profile.json` |
 | Verified publications and preprints | `src/data/publications.json` |
 | Future public talks | `src/data/talks.json` |
 | Homepage ordering | `src/pages/index.astro` |
-| Research page structure | `src/pages/research.astro` |
-| Accessible workflow diagrams | `src/components/Workflow.astro` |
+| Legacy Research redirect | `src/pages/research.astro` |
 | Typography, spacing, mobile layout | `src/styles/global.css` |
 | Portrait | `public/images/kaiming-liu.jpg` |
 | Self-hosted font, license and provenance | `public/fonts/` |
@@ -46,9 +45,9 @@ npm run build
 npm run preview
 ```
 
-Run `npm run cv:build` before the site build whenever shared CV facts change. Review both PDF pages and Home and Research at 1440, 1280, 768, 390, and 320 px, including diagram flow, overflow, keyboard navigation, and contrast. The build checks all generated pages for headings, canonical URLs, navigation, JavaScript, local links/fragments, workflow labels, the font license, and identical CV copies. Commit source, lockfile, LaTeX, and PDF, then push to `main`. GitHub Actions deploys automatically. Check the workflow and live Home, Research, and CV after deployment. `site` is the user-site origin `https://kl543.github.io`; do not add a repository base path.
+Run `npm run cv:build` before the site build whenever shared CV facts change. Homepage-only edits do not require regenerating or redesigning the CV. Review Home at 1440, 1280, 768, 390, and 320 px, including the professional row, project alignment, overflow, keyboard navigation, anchors, and contrast. If the CV changed, inspect both PDF pages. The build checks generated pages for headings, canonical URLs, absence of primary navigation and JavaScript, professional-link ordering, local links/fragments, the Research redirect, the font license, and identical CV copies. Commit the changed deliverables, then push to `main`. GitHub Actions deploys automatically. Check the workflow and live Home, legacy Research URL, and CV after deployment. `site` is the user-site origin `https://kl543.github.io`; do not add a repository base path.
 
-The old `/contact.html` and `/coursework.html` addresses redirect to relevant homepage sections. `/interests.html` and `/projects.html` redirect to `/research/`. The original CV address `/assets/cv/Kaiming_Liu_CV.pdf` serves the current PDF. Keep these compatibility routes while external bookmarks may exist.
+The old `/research/`, `/interests.html`, and `/projects.html` addresses redirect directly to `/#research` using static HTML refreshes with fallback links. `/contact.html` goes to `/#about`; `/coursework.html` goes to `/#background`. These redirects use `noindex` and do not duplicate project content. No individual Research detail routes existed when the single-page refactor began. Keep the stable homepage anchors `crystal-field`, `magnetic-scattering`, `neural-backflow`, and `background`; `education` is also retained. The original CV address `/assets/cv/Kaiming_Liu_CV.pdf` serves the current PDF. Keep these compatibility routes while external bookmarks may exist.
 
 On the owner’s Mac, the default `~/.config` directory is owned by root. GitHub CLI authorization is therefore saved in the writable `~/Library/Application Support/gh` directory, with credentials in the macOS keychain. This repository’s local Git credential helper already uses that directory. For manual `gh` commands on this Mac, prefix them with `GH_CONFIG_DIR="$HOME/Library/Application Support/gh"`; this machine-specific detail is not required for GitHub Actions or another checkout.
 
@@ -87,11 +86,11 @@ draft: true
 Write the actual note here.
 ```
 
-Review the content, then change `draft` to `false`. The homepage automatically gains a Writing section and inline link, and the note appears at `/writing/descriptive-slug/`. No empty writing index is published. For math rendering, add a focused Markdown integration only when an actual note needs it.
+Review the content, then change `draft` to `false`. The homepage automatically gains a Writing section linking to the note at `/writing/descriptive-slug/`. It does not add a navbar. No empty writing index is published. For math rendering, add a focused Markdown integration only when an actual note needs it.
 
 ## Add talks later
 
-Add only a verified public talk to `src/data/talks.json`. Each object has `title`, `event`, and an ISO `date` (`YYYY-MM-DD`); `url`, `slides`, and `video` are optional public links. Dates determine descending order. The homepage gains a Talks section and inline link automatically, using the same quiet year/title layout as publications. Leave the list empty until there is real content. Talks do not enter the CV automatically; revise its content deliberately when needed.
+Add only a verified public talk to `src/data/talks.json`. Each object has `title`, `event`, and an ISO `date` (`YYYY-MM-DD`); `url`, `slides`, and `video` are optional public links. Dates determine descending order. The homepage gains a Talks section automatically, using the same quiet year/title layout as publications, without a navigation link. Leave the list empty until there is real content. Talks do not enter the CV automatically; revise its content deliberately when needed.
 
 ## Update the CV
 
@@ -129,3 +128,5 @@ The first Astro rebuild is also preserved at `checkpoint/v1-before-jason-jaehoon
 The deployed second version is preserved at `checkpoint/v2-before-final-research-profile-polish-20261001` (commit `8507c00`), created before the final researcher-profile refinement.
 
 The version before the multi-page expansion and CV redesign is preserved at `checkpoint/v3-before-multipage-cv-redesign-20261001` (commit `9b19150`). All earlier recovery references remain unchanged.
+
+The deployed version before the single-page refactor is preserved at `checkpoint/v5-before-single-page-final-20261001` (commit `2dc64b1`). Its two-page CV source and PDF were kept byte-for-byte unchanged in the refactor.

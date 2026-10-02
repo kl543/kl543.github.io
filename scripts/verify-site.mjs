@@ -10,19 +10,24 @@ const research = JSON.parse(readFileSync('src/data/research.json', 'utf8'));
 assert.ok(papers.every(paper => ['published', 'preprint'].includes(paper.status)), 'Only verified publications or public preprints');
 assert.equal(new Set(papers.map(paper => paper.id)).size, papers.length, 'Unique publication IDs');
 assert.ok(html.includes(`mailto:${profile.email}`));
+assert.ok(!/<nav\b/.test(html), 'Homepage has no navbar');
+assert.ok(!/Current work|Selected research|href="\/research\//.test(html), 'Research lives directly on Home');
+const linksRow = html.match(/<ul class="contact-links"[^>]*>([\s\S]*?)<\/ul>/)?.[1];
+assert.ok(linksRow, 'One professional links row');
+const expectedLinks = [`mailto:${profile.email}`, profile.cvUrl, ...(profile.scholar ? [profile.scholar] : []), profile.github, profile.linkedin];
+assert.deepEqual([...linksRow.matchAll(/href="([^"]+)"/g)].map(match => match[1].replaceAll('&amp;', '&')), expectedLinks, 'Professional links have the required order');
+assert.equal(html.includes('Google Scholar'), Boolean(profile.scholar), 'No guessed or placeholder Scholar link');
 assert.ok(!/Coming Soon|passionate about|cutting-edge/i.test(html));
 assert.equal(html.includes('id="publications"'), papers.length > 0, 'No empty publications section');
 assert.equal(html.includes('id="talks"'), talks.length > 0, 'No empty talks section');
 assert.deepEqual(readFileSync('dist/cv/Kaiming_Liu_CV.pdf'), readFileSync('cv/Kaiming_Liu_CV.pdf'));
 assert.deepEqual(readFileSync('dist/assets/cv/Kaiming_Liu_CV.pdf'), readFileSync('cv/Kaiming_Liu_CV.pdf'));
 assert.ok(readFileSync('cv/Kaiming_Liu_CV.pdf').subarray(0, 5).toString() === '%PDF-');
-// Check links across pages: a new Research fragment must exist at its destination,
-// rather than merely pointing at an HTML file which happens to exist.
+// Verify fragment destinations, including compatibility redirects back to Home.
 const htmlFiles = directory => readdirSync(directory, { withFileTypes: true }).flatMap(item => {
   const path = join(directory, item.name);
   return item.isDirectory() ? htmlFiles(path) : item.name.endsWith('.html') ? [path] : [];
 });
-const redirects = new Set(['contact.html', 'coursework.html', 'interests.html', 'projects.html']);
 for (const file of htmlFiles('dist')) {
   const source = readFileSync(file, 'utf8');
   const relative = file.slice('dist/'.length);
@@ -30,12 +35,12 @@ for (const file of htmlFiles('dist')) {
   const url = new URL(pathname, profile.website);
   assert.ok(!/<script\b/.test(source), `${file}: no browser JavaScript`);
   assert.ok(source.includes('<html lang="en"'), `${file}: language`);
-  if (!redirects.has(relative)) {
+  const isRedirect = /http-equiv="refresh"/.test(source);
+  if (!isRedirect) {
     assert.equal((source.match(/<h1\b/g) || []).length, 1, `${file}: one main heading`);
     const canonical = source.match(/rel="canonical" href="([^"]+)"/)?.[1];
     assert.equal(canonical, url.href, `${file}: canonical URL`);
-    assert.ok(source.includes('href="/research/"'), `${file}: Research navigation`);
-    assert.ok(source.includes(`href="${profile.cvUrl}"`), `${file}: CV navigation`);
+    assert.ok(!/<header[^>]*>[\s\S]*?<nav\b[\s\S]*?<\/header>/.test(source), `${file}: no primary navbar`);
   }
   const ids = [...source.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
   assert.equal(new Set(ids).size, ids.length, `${file}: unique IDs`);
@@ -49,20 +54,20 @@ for (const file of htmlFiles('dist')) {
     }
   }
 }
-const researchHtml = readFileSync('dist/research/index.html', 'utf8');
 assert.equal(new Set(research.projects.map(project => project.id)).size, research.projects.length, 'Unique project IDs');
 for (const project of research.projects) {
-  assert.ok(project.paragraphs.length > 0, `${project.id}: substantive research content`);
-  assert.ok(researchHtml.includes(`id="${project.id}"`));
-  if (project.selected) assert.ok(html.includes(`href="/research/#${project.id}"`), `${project.id}: Home links to detail`);
-  if (project.workflow) {
-    assert.ok(researchHtml.includes(`aria-label="${project.workflow.label}"`), `${project.id}: accessible workflow`);
-    assert.ok(researchHtml.includes(`id="${project.id}-caption"`), `${project.id}: caption`);
-  }
+  assert.ok(project.text.length > 0 && html.includes(project.text), `${project.id}: complete text on Home`);
+  assert.ok(html.includes(`id="${project.id}"`), `${project.id}: stable Home anchor`);
 }
+assert.ok(html.includes('id="background"'), 'Stable background anchor');
+const legacyResearch = readFileSync('dist/research/index.html', 'utf8');
+assert.ok(legacyResearch.includes('content="0;url=/#research"'), 'Research redirects to Home');
+assert.ok(legacyResearch.includes('content="noindex, follow"'), 'Legacy research does not compete in search');
+assert.ok(legacyResearch.includes(`rel="canonical" href="${profile.website}"`));
+assert.ok(!legacyResearch.includes('id="crystal-field"'), 'No duplicated detail content');
 assert.ok(existsSync('dist/fonts/academic-serif-latin.woff2'));
 assert.ok(readFileSync('dist/fonts/OFL.txt', 'utf8').includes('SIL OPEN FONT LICENSE'));
 assert.ok(existsSync('dist/404.html'));
 const writing = readdirSync('src/content/writing').filter(file => file.endsWith('.md'));
 if (!writing.length) assert.ok(!html.includes('id="writing"'), 'No empty writing section');
-console.log('All pages: headings, navigation, canonical URLs, zero JavaScript, local links/fragments, research workflows, font license, and CV copies verified.');
+console.log('Single-page content, professional links, headings/canonicals, zero JavaScript, local links/anchors, Research redirect, font license, and CV copies verified.');
