@@ -9,13 +9,13 @@
   "github": "https://github.com/kl543",
   "linkedin": "https://www.linkedin.com/in/kaiming-l-9a166526a/",
   "cvUrl": "/cv/Kaiming_Liu_CV.pdf",
-  "description": "Kaiming Liu studies probabilistic machine learning, multimodal inference, and robustness in scientific inverse problems. Physics PhD student at UIUC.",
+  "description": "Kaiming Liu is a Physics PhD student at UIUC studying probabilistic machine learning and robust prediction in scientific inverse problems.",
   "bio": [
-    "I study probabilistic machine learning, with a focus on multimodal inference and robustness under distribution shift.",
-    "I use scientific inverse problems to study multiple solutions and the shift from simulations to real measurements."
+    "My research focuses on probabilistic machine learning for inverse problems, where one measurement can have several plausible explanations.",
+    "I model these alternatives and study how predictions change from simulations to real measurements."
   ],
-  "background": "My experimental background informs how I approach the gap between simulations and measurements. In Vidya Madhavan’s group at UIUC, I grew thin films with molecular beam epitaxy (MBE) and studied electronic structure with STM/STS in ultrahigh vacuum (UHV). I developed experimental automation and Python/MATLAB analysis of quasiparticle-interference data.",
-  "interests": "Probabilistic machine learning; multimodal conditional inference; robustness under distribution shift; simulation-to-experiment transfer; neural many-body models.",
+  "background": "In Vidya Madhavan’s group at UIUC, I grew thin films with molecular beam epitaxy (MBE) and studied electronic structure with STM/STS in ultrahigh vacuum (UHV). I developed automation and Python/MATLAB analysis tools. That experience informs how I test models against real measurements.",
+  "interests": "Probabilistic machine learning; conditional density modeling; non-unique inverse problems; robustness under distribution shift; simulation-to-experiment transfer; neural many-body models.",
   "education": [
     {
       "institution": "University of Illinois Urbana-Champaign",
@@ -61,18 +61,18 @@
       "url": "https://illinois.edu/",
       "projects": [
         {
-          "title": "Multimodal inference / crystal-field parameters",
+          "title": "Conditional density modeling / crystal-field parameters",
           "bullets": [
-            "Built residual-MLP conditional Gaussian mixtures to represent multiple plausible crystal-field solutions from susceptibility.",
-            "Validated candidates through forward reconstruction; studied noise, scale, and background shifts and experimental measurements.",
+            "Built residual-MLP conditional Gaussian mixtures for conditional density estimation from magnetic susceptibility.",
+            "Represented multiple plausible solutions and checked them by reconstructing susceptibility; studied robustness on simulated and experimental data.",
             "Evaluated conditional Gaussian mixtures and conditional RealNVP normalizing flows in a pilot density-model comparison."
           ]
         },
         {
           "title": "Robust inverse prediction / neutron scattering",
           "bullets": [
-            "Trained MLP and ResNet conditional Gaussian mixtures for high-dimensional inverse prediction of exchange parameters from neutron maps.",
-            "Used exact Sunny forward evaluation and classical fit references; tested noise, intensity-scale, and background shifts."
+            "Trained MLP and ResNet conditional Gaussian mixtures to infer exchange parameters from high-dimensional neutron-scattering maps.",
+            "Checked predictions with Sunny forward simulations and classical fit references; tested noise, intensity scaling, and background offsets."
           ]
         },
         {
@@ -161,5 +161,5 @@
       "items": "MBE, STM/STS, UHV; feedback control, automation, MATLAB and data analysis."
     }
   ],
-  "researchProfile": "Probabilistic machine learning for multimodal conditional inference and robustness under distribution shift, tested on scientific inverse problems."
+  "researchProfile": "Machine learning for probabilistic inference and robust prediction in scientific inverse problems with multiple plausible solutions."
 }

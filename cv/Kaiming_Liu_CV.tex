@@ -64,7 +64,7 @@
 % Each entry is an indivisible row; the table can break between entries.
 % The left label column remains aligned throughout both pages.
 \begin{longtable}{@{}p{80pt}@{\hspace{14pt}}p{\dimexpr\textwidth-94pt\relax}@{}}
-\cvrow{Research Profile}{Probabilistic machine learning for multimodal conditional inference and robustness under distribution shift, tested on scientific inverse problems.}{18}
+\cvrow{Research Profile}{Machine learning for probabilistic inference and robust prediction in scientific inverse problems with multiple plausible solutions.}{18}
 \cvrow{Education}{\href{https://illinois.edu/}{\textcolor{accent}{\textbf{University of Illinois Urbana-Champaign}}}\par
 \datedline{\textit{Ph.D. in Physics, in progress}}{Aug 2023--present}
 Advisor: Bryan K. Clark\par}{10}
@@ -78,17 +78,17 @@ Advisor: Bryan K. Clark\par}{10}
 }{18}
 \cvrow{Current Research}{\entry{\href{https://illinois.edu/}{\textcolor{accent}{\textbf{University of Illinois Urbana-Champaign}}}}{Graduate researcher, Bryan K. Clark group}{Nov 2025--present}
 \vspace{8pt}
-\textbf{Multimodal inference / crystal-field parameters}\par
+\textbf{Conditional density modeling / crystal-field parameters}\par
 \begin{itemize}
-  \item Built residual-MLP conditional Gaussian mixtures to represent multiple plausible crystal-field solutions from susceptibility.
-  \item Validated candidates through forward reconstruction; studied noise, scale, and background shifts and experimental measurements.
+  \item Built residual-MLP conditional Gaussian mixtures for conditional density estimation from magnetic susceptibility.
+  \item Represented multiple plausible solutions and checked them by reconstructing susceptibility; studied robustness on simulated and experimental data.
   \item Evaluated conditional Gaussian mixtures and conditional RealNVP normalizing flows in a pilot density-model comparison.
 \end{itemize}
 \vspace{8pt}
 \textbf{Robust inverse prediction / neutron scattering}\par
 \begin{itemize}
-  \item Trained MLP and ResNet conditional Gaussian mixtures for high-dimensional inverse prediction of exchange parameters from neutron maps.
-  \item Used exact Sunny forward evaluation and classical fit references; tested noise, intensity-scale, and background shifts.
+  \item Trained MLP and ResNet conditional Gaussian mixtures to infer exchange parameters from high-dimensional neutron-scattering maps.
+  \item Checked predictions with Sunny forward simulations and classical fit references; tested noise, intensity scaling, and background offsets.
 \end{itemize}
 \vspace{8pt}
 \textbf{Neural-network backflow / JAX and Monte Carlo}\par

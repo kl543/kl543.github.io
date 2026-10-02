@@ -2,21 +2,21 @@
   "projects": [
     {
       "id": "crystal-field",
-      "title": "Multimodal conditional inference",
+      "title": "Conditional density modeling",
       "descriptor": "Crystal-field parameters from susceptibility",
-      "text": "One observation can admit multiple plausible parameter solutions. I use residual multilayer perceptrons (MLPs) with conditional Gaussian mixture models (cGMMs) in PyTorch to represent these alternatives in crystal-field inference from magnetic susceptibility. I check physical compatibility through forward reconstruction, study robustness to synthetic noise, intensity scaling, and background offsets, and evaluate predictions on experimental measurements."
+      "text": "Several crystal-field parameter sets can explain the same magnetic susceptibility curve. I use residual MLPs with conditional Gaussian mixture models (cGMMs) to learn a distribution over possible solutions instead of one answer. I check candidates with susceptibility simulations, then test predictions under noise, scale changes, and background offsets and on experimental measurements."
     },
     {
       "id": "magnetic-scattering",
-      "title": "Robustness in inverse prediction",
-      "descriptor": "Magnetic neutron scattering · conditional mixtures",
-      "text": "I train MLP and ResNet conditional Gaussian mixtures to infer exchange parameters from high-dimensional, powder-averaged neutron-scattering maps. Exact Sunny forward calculations evaluate whether predicted parameters reproduce the maps, with classical fits as references. Controlled noise, intensity-scale, and background shifts in simulated data test robustness relevant to future experimental transfer."
+      "title": "Robust inverse prediction",
+      "descriptor": "Magnetic neutron scattering · conditional mixtures",
+      "text": "I infer interaction parameters from complex scattering maps using MLP and ResNet conditional Gaussian mixtures. For powder-averaged neutron scattering, Sunny forward simulations check predictions, with classical fits as references. I test noise, intensity scaling, and background offsets in simulated maps to study robustness for future experimental transfer."
     },
     {
       "id": "neural-backflow",
       "title": "Neural models and Monte Carlo",
-      "descriptor": "Backflow wavefunctions · JAX / multi-GPU computation",
-      "text": "I implement neural-network backflow wavefunctions and variational Monte Carlo (VMC) in JAX for lattice Hubbard models of correlated fermions. This research engineering work covers GPU/multi-GPU sampling, local-energy evaluation, global reductions, and gradient synchronization. I profile runtime and check numerical correctness against reference computations."
+      "descriptor": "Backflow · VMC · JAX / multi-GPU",
+      "text": "I implement neural-network backflow wavefunctions in JAX and optimize them with variational Monte Carlo (VMC) for lattice Hubbard models. My work includes GPU/multi-GPU sampling, local-energy calculations, and gradient synchronization. I profile runtime and check numerical correctness against reference computations."
     }
   ]
 }
